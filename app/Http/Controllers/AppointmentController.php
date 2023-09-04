@@ -1,14 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
+    public function success()
+    {
+        return view('appointment.success'); 
+    }
+    
     public function store(Request $request)
 {
-    // Validate the form data
+    
     $request->validate([
         'first_name' => 'required|string',
         'last_name' => 'required|string',
@@ -17,7 +22,7 @@ class AppointmentController extends Controller
         'message' => 'nullable|string',
     ]);
 
-    // Create a new Appointment model instance
+    
     $appointment = new Appointment([
         'first_name' => $request->input('first_name'),
         'last_name' => $request->input('last_name'),
@@ -26,11 +31,11 @@ class AppointmentController extends Controller
         'message' => $request->input('message'),
     ]);
 
-    // Save the appointment to the database
     $appointment->save();
-    //success msg
+
+
     session()->flash('success', 'Appointment submitted successfully!');
-    // Redirect or return a response
-    return redirect()->route('appointment-success'); // You can create a success page route and view
+    return redirect()->route('appointment-success');
+
 }
 }

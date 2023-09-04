@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -55,6 +56,9 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['nullable', 'string', 'max:255'], 
             'date_of_birth' => ['nullable', 'date'], 
+            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Normal'])],
+            'allergies' => ['nullable', 'string', 'max:255'],
+            'additional_info' => ['nullable', 'string'],
         ]);
     }
 
@@ -72,6 +76,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'address' => $data['address'],
             'date_of_birth' => $data['date_of_birth'], 
+            'skin_type' => $data['skin_type'],
+            'allergies' => $data['allergies'],
+            'additional_info' => $data['additional_info'],
         ]);
     }
 }

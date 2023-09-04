@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('/submit-appointment', 'AppointmentController@store')->name('submit-appointment');
+Route::get('/appointment-success', 'AppointmentController@success')->name('appointment-success');
+Route::post('/submit-appointment', [AppointmentController::class, 'store'])->name('submit-appointment');
+
+
+

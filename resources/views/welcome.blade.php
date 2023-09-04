@@ -38,7 +38,6 @@
                   <div class="collapse navbar-collapse" id="ftco-nav">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
-                   <!--<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>-->
                       <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
                       <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
                       <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
@@ -62,8 +61,6 @@
                                 @endauth
                          
                         @endif
-                 <!--     <li class="nav-item"><a href="/registration" class="nav-link">Sign Up</a></li>
-                      <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>-->
                     </ul>
                   </div>
                 </div>
@@ -81,7 +78,7 @@
                 <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Beauty Salon</h1>
                 <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Where Beauty and Elegance Unite</p>
     
-                <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#services" class="btn btn-white btn-outline-white px-4 py-3">View Our Services</a></p>
+                <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-white btn-outline-white px-4 py-3">View Our Services</a></p>
               </div>
             </div>
           </div>
@@ -89,22 +86,27 @@
     
         <section class="ftco-section">
             <div class="container">
+              <div class="row justify-content-center mb-5 pb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Our Services</h2>
+                </div>
+              </div>
                 <div class="row">
               <div class="col-md-4 ftco-animate">
                 <div class="media d-block text-center block-6 services">
                   <div class="icon d-flex mb-3"><span class="flaticon-facial-treatment"></span></div>
                   <div class="media-body">
                     <h3 class="heading">Skin &amp; Beauty Care</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    <p>Elevate your beauty with our expert skin care services, designed to enhance your natural charm and leave you feeling fabulous.</p>
                   </div>
                 </div>      
               </div>
-              <div class="col-md-4 ftco-animate" id="services">
+              <div class="col-md-4 ftco-animate">
                 <div class="media d-block text-center block-6 services">
                   <div class="icon d-flex mb-3"><span class="flaticon-cosmetics"></span></div>
                   <div class="media-body">
-                    <h3 class="heading">Makeup Pro</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    <h3 class="heading">Makeup &amp; Dressings</h3>
+                    <p>Discover the secret to radiant beauty with our salon's harmonious blend of makeup artistry and impeccable dressing services, tailored just for you.</p>
                   </div>
                 </div>      
               </div>
@@ -112,11 +114,14 @@
                 <div class="media d-block text-center block-6 services">
                   <div class="icon d-flex mb-3"><span class="flaticon-curl"></span></div>
                   <div class="media-body">
-                    <h3 class="heading">Hair Style</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
+                    <h3 class="heading">Hair Styling</h3>
+                    <p>Unlock the power of perfect hair with our salon's cutting and styling expertise, where creativity and precision combine to craft your signature look.</p>
                   </div>
                 </div>    
               </div>
+            </div>
+            <div class="info text-center">
+            <p class="nav-link"><a href="#" class="nav-item">More...</a></p>
             </div>
             </div>
         </section>
@@ -126,7 +131,7 @@
               <div class="row justify-content-center mb-5 pb-3">
               <div class="col-md-7 heading-section ftco-animate text-center">
                 <h2 class="mb-4">Our Beauty Experts</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>Passionately Crafting Your Perfect Look – Our Stylists, Your Beauty Architects.</p>
               </div>
             </div>
             <div class="row">
@@ -134,10 +139,10 @@
                     <div class="staff">
                           <div class="img mb-4" style="background-image: url(images/person_1.jpg);"></div>
                           <div class="info text-center">
-                              <h3><a href="teacher-single.html">Mellisa Smith</a></h3>
-                              <span class="position">Massage Therapist</span>
+                              <h3><a href="#">Mellisa Smith</a></h3>
+                              <span class="position">Makeup Stylist</span>
                               <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p>I'm dedicated to elevating your natural beauty and confidence. With 12 years of experience, I specialize in bridal, special occasion, and photoshoot makeup.</p>
                             </div>
                           </div>
                     </div>
@@ -146,10 +151,10 @@
                     <div class="staff">
                           <div class="img mb-4" style="background-image: url(images/person_2.jpg);"></div>
                           <div class="info text-center">
-                              <h3><a href="teacher-single.html">Marie Mush</a></h3>
-                              <span class="position">Hairdresser</span>
+                              <h3><a href="#">Marie Bush</a></h3>
+                              <span class="position"> Massage Therapist</span>
                               <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p>Welcome to Salon Zen . Having 20 years of experience, I offer a range of therapeutic massage techniques tailored to your unique needs.</p>
                             </div>
                           </div>
                     </div>
@@ -158,22 +163,22 @@
                     <div class="staff">
                           <div class="img mb-4" style="background-image: url(images/person_3.jpg);"></div>
                           <div class="info text-center">
-                              <h3><a href="teacher-single.html">Ana Jacobson</a></h3>
-                              <span class="position">Makeup Stylist</span>
+                              <h3><a href="#">Ana Holland</a></h3>
+                              <span class="position">Nail Specialist </span>
                               <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p>With a keen eye for detail and a passion for nail artistry, I create stunning, long-lasting manicures and pedicures tailored to your style.</p>
                             </div>
                           </div>
                     </div>
                 </div>
                 <div class="col-lg-3 d-flex mb-sm-4 ftco-animate">
                     <div class="staff">
-                          <div class="img mb-4" style="background-image: url(images/person_4.jpg);"></div>
+                          <div class="img mb-4" style="background-image: url(images/work-5.jpg);"></div>
                           <div class="info text-center">
-                              <h3><a href="teacher-single.html">Ivan Dorchsner</a></h3>
-                              <span class="position">Nail Specialist</span>
+                              <h3><a href="#">Iris Anderson</a></h3>
+                              <span class="position">Hairdresser</span>
                               <div class="text">
-                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p>Welcome to Salon Zen, where your dream hairstyle becomes a reality. I specialize in crafting personalized hair transformations to create your signature look.</p>
                             </div>
                           </div>
                     </div>
@@ -187,10 +192,10 @@
                 <div class="container">
                     <div class="row justify-content-end">
                         <div class="col-md-5 discount ftco-animate">
-                            <h3>Save up to 25% Off</h3>
-                            <h2 class="mb-4">Student Discount</h2>
-                            <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-                            <p><a href="#" class="btn btn-white btn-outline-white px-4 py-3">Book Now</a></p>
+                            <h3>Save up to 50% Off</h3>
+                            <h2 class="mb-4">Referral Discount</h2>
+                            <p class="mb-4">Double the Beauty, Double the Savings! Refer a friend to our salon, and you both enjoy exclusive discounts on your next visit. Spread the word and let the beauty savings multiply!</p>
+                            <p><a href="#appointments" class="btn btn-white btn-outline-white px-4 py-3">Book Now!</a></p>
                         </div>
                     </div>
                 </div>
@@ -207,7 +212,7 @@
             <div class="row">
                 <div class="col-md-4 ftco-animate">
                     <a href="#" class="work-entry">
-                        <img src="images/work-9.jpg" class="img-fluid" alt="Colorlib Template">
+                        <img src="images/work-9.jpg" class="img-fluid" alt="Beauty products">
                         <div class="info d-flex align-items-center">
                             <div>
                                 <div class="icon mb-4 d-flex align-items-center justify-content-center">
@@ -220,7 +225,7 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <a href="#" class="work-entry">
-                        <img src="images/work-2.jpg" class="img-fluid" alt="Colorlib Template">
+                        <img src="images/work-2.jpg" class="img-fluid" alt="Beauty products">
                         <div class="info d-flex align-items-center">
                             <div>
                                 <div class="icon mb-4 d-flex align-items-center justify-content-center">
@@ -233,7 +238,7 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <a href="#" class="work-entry">
-                        <img src="images/work-10.jpg" class="img-fluid" alt="Colorlib Template">
+                        <img src="images/work-10.jpg" class="img-fluid" alt="Beauty products">
                         <div class="info d-flex align-items-center">
                             <div>
                                 <div class="icon mb-4 d-flex align-items-center justify-content-center">
@@ -249,28 +254,33 @@
         </section>
     
         <section class="ftco-partner bg-light">
-            <div class="container">
+            <div class="container">   
+              <div class="row justify-content-center mb-5 pb-3">
+              <div class="col-md-7 heading-section text-center ftco-animate">
+              <h2 class="mb-4">Our Products</h2>
+              </div>
+            </div>
                 <div class="row partner justify-content-center">
                     <div class="col-md-10">
                         <div class="row">
                         <div class="col-md-3 ftco-animate">
                             <a href="#" class="partner-entry">
-                                <img src="images/partner-1.jpg" class="img-fluid" alt="Colorlib template">
+                                <img src="images/product1.jpg" class="img-fluid" alt="Beauty products">
                             </a>
                         </div>
                         <div class="col-md-3 ftco-animate">
                             <a href="#" class="partner-entry">
-                                <img src="images/partner-2.jpg" class="img-fluid" alt="Colorlib template">
+                                <img src="images/product2.jpg" class="img-fluid" alt="Beauty products">
                             </a>
                         </div>
                         <div class="col-md-3 ftco-animate">
                             <a href="#" class="partner-entry">
-                                <img src="images/partner-3.jpg" class="img-fluid" alt="Colorlib template">
+                                <img src="images/product7.jpg" class="img-fluid" alt="Beauty products">
                             </a>
                         </div>
                         <div class="col-md-3 ftco-animate">
                             <a href="#" class="partner-entry">
-                                <img src="images/partner-4.jpg" class="img-fluid" alt="Colorlib template">
+                                <img src="images/product9.jpg" class="img-fluid" alt="Beauty products">
                             </a>
                         </div>
                     </div>
@@ -335,7 +345,7 @@
                                     <li>Body Massage</li>
                                     <li>Manicure</li>
                         </ul>
-                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+                        <p class="button text-center"><a href="#appointments" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 ftco-animate">
@@ -411,7 +421,7 @@
             <div class="row justify-content-center mb-5 pb-3">
               <div class="col-md-7 heading-section ftco-animate text-center">
                 <h2 class="mb-4">New Arrivals</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>Introducing Beauty's Latest Obsession – Explore Our New Arrivals and Stay Ahead of the Trends.</p>
               </div>
             </div>
             <div class="row d-flex">
@@ -465,7 +475,7 @@
         </section>
     
             
-            <section class="ftco-section ftco-appointment">
+            <section class="ftco-section ftco-appointment" id="appointments">
                 <div class="overlay"></div>
             <div class="container">
                 <div class="row d-md-flex align-items-center">
@@ -491,6 +501,12 @@
                         <h3 class="mb-3">Appointments</h3>
                         <form action="{{ route('submit-appointment') }}" method="POST" class="appointment-form"  >
                           @csrf
+                          @if (session('success'))
+                              <div class="alert alert-success">
+                             {{ session('success') }}
+                               </div>
+                          @endif
+
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="first_name" placeholder="First Name">
@@ -514,7 +530,7 @@
                       <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
-                      <input type="submit" value="Order" class="btn btn-white btn-outline-white py-3 px-4">
+                      <input type="submit" value="Book now!" class="btn btn-white btn-outline-white py-3 px-4">
                     </div>
                   </form>
                     </div>    			

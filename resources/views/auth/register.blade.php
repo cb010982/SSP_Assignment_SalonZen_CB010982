@@ -38,7 +38,33 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <label for="skin_type" class="col-md-4 col-form-label text-md-right">{{ __('Skin Type') }}</label>
+                            <div class="col-md-6">
+                                <select id="skin_type" class="form-control" name="skin_type">
+                                    <option value="Dry">Dry</option>
+                                    <option value="Oily">Oily</option>
+                                    <option value="Combination">Combination</option>
+                                    <option value="Normal">Normal</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group row">
+                            <label for="allergies" class="col-md-4 col-form-label text-md-right">{{ __('Allergies') }}</label>
+                            <div class="col-md-6">
+                                <input id="allergies" type="text" class="form-control" name="allergies" value="{{ old('allergies') }}">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="additional_info" class="col-md-4 col-form-label text-md-right">{{ __('Additional Info') }}</label>
+                            <div class="col-md-6">
+                                <textarea id="additional_info" class="form-control" name="additional_info">{{ old('additional_info') }}</textarea>
+                            </div>
+                        </div>
+                        
                         <div class="row mb-3">
                             <label for="address" class="col-md-4 col-form-label text-md-end">Address</label>
                             <div class="col-md-6">
