@@ -489,28 +489,29 @@
                     </div>
                     <div class="col-md-6 appointment pl-md-5 ftco-animate">
                         <h3 class="mb-3">Appointments</h3>
-                        <form action="#" class="appointment-form">
+                        <form action="{{ route('submit-appointment') }}" method="POST" class="appointment-form"  >
+                          @csrf
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="First Name">
+                            <input type="text" class="form-control" name="first_name" placeholder="First Name">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Last Name">
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name">
                         </div>
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
                             <div class="input-wrap">
                                 <div class="icon"><span class="ion-md-calendar"></span></div>
-                                <input type="text" id="appointment_date" class="form-control" placeholder="Date">
+                                <input type="text" id="appointment_date" class="form-control" name="appointment_date" placeholder="Date">
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Phone">
+                            <input type="text" class="form-control" name="phone" placeholder="Phone">
                         </div>
                     </div>
                     <div class="form-group">
-                      <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+                      <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
                       <input type="submit" value="Order" class="btn btn-white btn-outline-white py-3 px-4">
@@ -606,7 +607,7 @@
               <!--  <p> Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
      <!-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
        Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p> -->
-       <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Senuji Pathirage</p>
+       <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Salon Zen</p>
               </div>
             </div>
           </div>
