@@ -46,7 +46,7 @@
                            
                                 @auth
                                <li class="nav-item"><a href="{{ url('/home') }}" class="nav-link">
-                                        Home
+                                        Dasboard
                                     </a></li>
                                 @else
                                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">
@@ -184,6 +184,9 @@
                     </div>
                 </div>
             </div>
+            <div class="info text-center">
+              <p class="nav-link"><a href="#" class="nav-item">More...</a></p>
+              </div>
           </div>
         </section>
     
@@ -195,7 +198,7 @@
                             <h3>Save up to 50% Off</h3>
                             <h2 class="mb-4">Referral Discount</h2>
                             <p class="mb-4">Double the Beauty, Double the Savings! Refer a friend to our salon, and you both enjoy exclusive discounts on your next visit. Spread the word and let the beauty savings multiply!</p>
-                            <p><a href="#appointments" class="btn btn-white btn-outline-white px-4 py-3">Book Now!</a></p>
+                            <p><a href="#appointments" class="btn btn-white btn-outline-white px-4 py-3">Book Now !</a></p>
                         </div>
                     </div>
                 </div>
@@ -286,6 +289,10 @@
                     </div>
                 </div>
             </div>
+            <br/>
+            <div class="info text-center">
+              <p class="nav-link"><a href="#" class="nav-item">More...</a></p>
+              </div>
             </div>
         </section>
     
@@ -294,40 +301,38 @@
                     <div class="row justify-content-center mb-5 pb-3">
               <div class="col-md-7 heading-section text-center ftco-animate">
                 <h2 class="mb-4">Beauty Pricing</h2>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                <p>Unlock Your Inner Beauty, Within Your Budget.</p>
               </div>
             </div>
             <div class="row">
                 <div class="col-md-3 ftco-animate">
                     <div class="pricing-entry pb-5 text-center">
                         <div>
-                            <h3 class="mb-4">Basic</h3>
-                            <p><span class="price">$24.50</span> <span class="per">/ one trip</span></p>
+                            <h3 class="mb-4">Waxing</h3>                          
                         </div>
                         <ul>
-                            <li>Nail Cutting &amp; Styling</li>
-                                    <li>Hair Trimming</li>
-                                    <li>Spa Therapy</li>
-                                    <li>Body Massage</li>
-                                    <li>Manicure</li>
+                            <li>Eyebrow Waxing : Rs 1000</li>
+                            <li>Upper Lip Waxing : Rs 800</li>
+                            <li>Chin Waxing : Rs 800</li>
+                            <li>Full Face Waxing : Rs 5000</li>
+                            <li>Underarm Waxing : Rs 4000</li>
                         </ul>
-                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 ftco-animate">
                     <div class="pricing-entry pb-5 text-center">
                         <div>
-                            <h3 class="mb-4">Standard</h3>
-                            <p><span class="price">$34.50</span> <span class="per">/ one trip</span></p>
+                            <h3 class="mb-4">Pedicure</h3>
                         </div>
                         <ul>
-                            <li>Nail Cutting &amp; Styling</li>
-                                    <li>Hair Trimming</li>
-                                    <li>Spa Therapy</li>
-                                    <li>Body Massage</li>
-                                    <li>Manicure</li>
+                            <li>Basic Pedicure : Rs 2500</li>
+                            <li>Deluxe Pedicure : Rs 6200</li>
+                            <li>Spa Pedicure : Rs 4000</li>
+                            <li>Gel Pedicure : Rs 5000</li>
+                            <li>French Pedicure : Rs 4500</li>
                         </ul>
-                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 ftco-animate">
@@ -335,33 +340,32 @@
                     <div class="pricing-entry pb-5 text-center">
                         <!--<div class="pricing-entry active pb-5 text-center">  // to get the pink outline permanently-->
                         <div>
-                            <h3 class="mb-4">Premium</h3>
-                            <p><span class="price">$54.50</span> <span class="per">/ one trip</span></p>
+                            <h3 class="mb-4">Manicure</h3>                          
                         </div>
                         <ul>
-                            <li>Nail Cutting &amp; Styling</li>
-                                    <li>Hair Trimming</li>
-                                    <li>Spa Therapy</li>
-                                    <li>Body Massage</li>
-                                    <li>Manicure</li>
+                          <li>Basic Manicure : Rs 1500</li>
+                          <li>Deluxe Manicure : Rs 5200</li>
+                          <li>Spa Manicure : Rs 3000</li>
+                          <li>Gel Manicure : Rs 4000</li>
+                          <li>French Manicure : Rs 3500</li>
                         </ul>
-                        <p class="button text-center"><a href="#appointments" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+                        <p class="button text-center"><a href="#appointments" class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 ftco-animate">
                     <div class="pricing-entry pb-5 text-center">
                         <div>
-                            <h3 class="mb-4">Platinum</h3>
-                            <p><span class="price">$89.50</span> <span class="per">/ one trip</span></p>
+                            <h3 class="mb-4">Massage</h3>
+                           
                         </div>
                         <ul>
-                            <li>Nail Cutting &amp; Styling</li>
-                                    <li>Hair Trimming</li>
-                                    <li>Spa Therapy</li>
-                                    <li>Body Massage</li>
-                                    <li>Manicure</li>
+                            <li>Collagen Facial : Rs 15000</li>
+                            <li>Hydrating Facial - Rs.20000</li>
+                            <li>Anti-Aging Facial : Rs 35000</li>
+                            <li>Gold Facial : Rs 30000</li>
+                            <li>Exfoliating Facial : Rs 15000</li>
                         </ul>
-                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Order now</a></p>
+                        <p class="button text-center"><a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
                     </div>
                 </div>
             </div>
@@ -530,7 +534,7 @@
                       <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
                     </div>
                     <div class="form-group">
-                      <input type="submit" value="Book now!" class="btn btn-white btn-outline-white py-3 px-4">
+                      <input type="submit" value="Book now !" class="btn btn-white btn-outline-white py-3 px-4">
                     </div>
                   </form>
                     </div>    			

@@ -13,15 +13,16 @@ use App\Http\Controllers\AppointmentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/services', function(){
+    return view('services');
+});
+
 Route::get('/appointment-success', 'AppointmentController@success')->name('appointment-success');
+
 Route::post('/submit-appointment', [AppointmentController::class, 'store'])->name('submit-appointment');
 
 
