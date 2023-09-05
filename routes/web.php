@@ -21,6 +21,10 @@ Route::get('/services', function(){
     return view('services');
 });
 
+Route::get('/home', function(){
+    return view('home');
+});
+
 Route::get('/appointment-success', 'AppointmentController@success')->name('appointment-success');
 
 Route::post('/submit-appointment', [AppointmentController::class, 'store'])->name('submit-appointment');

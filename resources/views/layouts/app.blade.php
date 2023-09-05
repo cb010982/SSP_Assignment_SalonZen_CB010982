@@ -3,34 +3,34 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{ asset('/css/open-iconic-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/animate.css') }}">
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{ asset('/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/magnific-popup.css') }}">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="{{ asset('/css/aos.css') }}">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="{{ asset('/css/ionicons.min.css') }}">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.timepicker.css') }}">
 
 
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -94,8 +94,7 @@
                 </div>
             </div>
         </nav> --}}
-
-        <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');"
+        <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/bg_1.jpg') }}');"
             data-stellar-background-ratio="0.5">
             <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
                 <div class="container">
@@ -106,7 +105,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active"><a href="#home" class="nav-link">Home</a></li>
+                            <li class="nav-item active"><a href="/home" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
@@ -292,23 +291,23 @@
             </svg></div>
 
 
-        <script src="js/jquery.min.js"></script>
-        <script src="js/jquery-migrate-3.0.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.1.3.js"></script>
-        <script src="js/jquery.waypoints.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/jquery.animateNumber.min.js"></script>
-        <script src="js/bootstrap-datepicker.js"></script>
-        <script src="js/jquery.timepicker.min.js"></script>
-        <script src="js/scrollax.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
+        <script src="{{ asset('js/popper.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.easing.1.3.js') }}"></script>
+        <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.stellar.min.js') }}"></script>
+        <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+        <script src="{{ asset('js/aos.js') }}"></script>
+        <script src="{{ asset('js/jquery.animateNumber.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+        <script src="{{ asset('js/jquery.timepicker.min.js') }}"></script>
+        <script src="{{ asset('js/scrollax.min.js') }}"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-        <script src="js/google-map.js"></script>
-        <script src="js/main.js"></script>
+        <script src="{{ asset('js/google-map.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
     </div>
 </body>
 
