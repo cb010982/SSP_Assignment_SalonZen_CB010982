@@ -6,6 +6,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Our Services</h2>
+                    <p>Experience the Artistry of Beauty – Your Dream Look, Our Expertise.</p>
                 </div>
             </div>
             <div class="row">
@@ -40,8 +41,9 @@
                     </div>
                 </div>
             </div>
-            <div class="info text-center">
-                <p class="nav-link"><a href="#" class="nav-item">More...</a></p>
+            <div >
+                <p class="button text-center"><a href="#"
+                    class="morebutton">More</a></p>
             </div>
         </div>
     </section>
@@ -108,8 +110,10 @@
                     </div>
                 </div>
             </div>
-            <div class="info text-center">
-                <p class="nav-link"><a href="#" class="nav-item">More...</a></p>
+            <br/>
+            <div >
+                <p class="button text-center"><a href="#"
+                    class="morebutton">More</a></p>
             </div>
         </div>
     </section>
@@ -123,7 +127,7 @@
                     <h2 class="mb-4">Referral Discount</h2>
                     <p class="mb-4">Double the Beauty, Double the Savings! Refer a friend to our salon, and you both enjoy
                         exclusive discounts on your next visit. Spread the word and let the beauty savings multiply!</p>
-                    <p><a href="#appointments" class="btn btn-white btn-outline-white px-4 py-3">Book Now !</a></p>
+                    <p><a href="#" class="btn btn-white btn-outline-white px-4 py-3">Book Now !</a></p>
                 </div>
             </div>
         </div>
@@ -134,8 +138,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Our Work</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-                        the blind texts.</p>
+                    <p> Celebrating Beauty, One Client at a Time – Witness Our Transformations!</p>
                 </div>
             </div>
             <div class="row">
@@ -187,6 +190,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h2 class="mb-4">Our Products</h2>
+                    <p>Indulge in Luxury – Our Products are the Epitome of Elegance and Efficacy.</p>
                 </div>
             </div>
             <div class="row partner justify-content-center">
@@ -216,8 +220,12 @@
                 </div>
             </div>
             <br />
-            <div class="info text-center">
-                <p class="nav-link"><a href="#" class="nav-item">More...</a></p>
+            <div >
+                <br/>
+                <div >
+                    <p class="button text-center"><a href="#"
+                        class="morebutton">More</a></p>
+                </div>
             </div>
         </div>
     </section>
@@ -295,7 +303,7 @@
                             <li>Exfoliating Facial : Rs 15000</li>
                         </ul>
                         <p class="button text-center"><a href="#"
-                                class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
+                            class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
                     </div>
                 </div>
             </div>
@@ -411,7 +419,7 @@
     </section>
 
 
-    <section class="ftco-section ftco-appointment" id="appointments">
+    <section class="ftco-section ftco-appointment" id="appointments" >
         <div class="overlay"></div>
         <div class="container">
             <div class="row d-md-flex align-items-center">
@@ -433,6 +441,17 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6 appointment pl-md-5 ftco-animate">
+                    <h3 class="mb-3">About Us</h3>
+                        <div class="row form-group">
+                           <p class="about_us">Established in 2005 , Salon Zen has been a trusted destination for beauty enthusiasts in Sri Lanka. Your comfort and satisfaction are paramount to us. Step into our serene oasis, designed to make you feel right at home. 
+                            Enjoy a complimentary beverage as you relax in our chic waiting area, and let our team pamper you with the care and attention you deserve. 
+                            At Salon Zen, we're committed to sustainability. We use eco-friendly products and take steps to minimize our environmental footprint, because beauty should never come at the expense of our planet.
+                            Join us at Salon Zen and discover a world of beauty and relaxation that's all about you. We can't wait to welcome you into our family!</p>
+                          <p><a href="#" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
+                        </div>
+                </div>
+                <!--
                 <div class="col-md-6 appointment pl-md-5 ftco-animate">
                     <h3 class="mb-3">Appointments</h3>
                     <form action="{{ route('submit-appointment') }}" method="POST" class="appointment-form">
@@ -471,6 +490,7 @@
                         </div>
                     </form>
                 </div>
+            -->
             </div>
         </div>
     </section>

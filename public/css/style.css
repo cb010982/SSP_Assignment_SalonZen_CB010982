@@ -7306,7 +7306,7 @@ h1, h2, h3, h4, h5,
 
 .ftco-navbar-light {
   background: #fcfcfc !important;
-  /*opacity:0.5;*/
+  opacity:0.7;
   z-index: 3;
   -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.07);
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.07); }
@@ -7453,6 +7453,7 @@ h1, h2, h3, h4, h5,
       .ftco-navbar-light.scrolled .nav-link.active {
         color: #fa5bdd !important; }
     .ftco-navbar-light.scrolled.awake {
+      opacity:1;
       margin-top: 0px;
       -webkit-transition: .3s all ease-out;
       -o-transition: .3s all ease-out;
@@ -7665,6 +7666,29 @@ h1, h2, h3, h4, h5,
         border: 1px solid transparent;
         background: #fa5bdd;
         color: #fff; }
+  .morebutton {
+    border-radius:25px;
+    padding-left:1.5rem;
+    padding-right:1.5rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
+   border: 1px solid #fa5bdd;
+   background: transparent;
+   color: #fa5bdd; }
+   .morebutton:hover,.registrationbutton:hover {
+   order: 1px solid transparent;
+   background: #fa5bdd;
+    color: #fff; }
+    .registrationbutton{
+      border-radius:25px;
+      padding-left:2.5rem;
+      padding-right:2.5rem;
+      padding-top:0.2rem;
+      padding-bottom:0.2rem;
+     border: 1px solid #fa5bdd;
+     background: transparent;
+     color: #fa5bdd;
+    }
   .btn.btn-white {
     background: #fff;
     border: 1px solid #fff;
@@ -7827,19 +7851,23 @@ h1, h2, h3, h4, h5,
       border: 1px solid #fa5bdd !important;
       color: #fff; }
 
+.about_us{
+  color:#fff;
+}
 .ftco-appointment {
   background: #252525; }
   .ftco-appointment .overlay {
     position: absolute;
-    top: 0;
+    top: -50px !important ;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: #fa5bdd;
+    bottom: -50px !important ;
+    background-color:#fa5bdd ;
     opacity: 1; }
 
 .appointment-info {
   width: 100%;
+  margin-left: -92px;
   display: block;
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.9);
@@ -7996,11 +8024,10 @@ h1, h2, h3, h4, h5,
     color: #fa5bdd; }
 
 .form-control {
-  height: 58px !important;
   background: #fff !important;
   color: #000 !important;
-  font-size: 18px;
-  border-radius: 0px;
+  font-size: 15px;
+  border-radius: 5px;
   -webkit-box-shadow: none !important;
   box-shadow: none !important; }
   .form-control:focus, .form-control:active {

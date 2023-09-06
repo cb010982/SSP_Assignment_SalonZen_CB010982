@@ -105,7 +105,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item active"><a href="/home" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="/home" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
@@ -223,7 +223,7 @@
                             <div class="block-21 mb-4 d-flex">
                                 <a class="blog-img mr-4" style="background-image: url(images/product4.jpg);"></a>
                                 <div class="text">
-                                    <h3 class="heading"><a href="#">Ageless Elegance Renewal Cream</a></h3>
+                                    <h3 class="heading"><a href="#" >Ageless Elegance Renewal Cream</a></h3>
                                     <div class="meta">
                                         <!--    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
                         <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -248,15 +248,15 @@
                     </div>
                     <div class="col-md-3">
                         <div class="ftco-footer-widget mb-4">
-                            <h2 class="ftco-heading-2">Have a Questions?</h2>
+                            <h2 class="ftco-heading-2">Have Questions?</h2>
                             <div class="block-23 mb-3">
                                 <ul>
                                     <li><span class="icon icon-map-marker"></span><span class="text">No 12.
                                             High-level Road, Nugegoda, Sri Lanka</span></li>
-                                    <li><a href="#"><span class="icon icon-phone"></span><span
+                                    <li><span class="icon icon-phone"></span><span
                                                 class="text">+94 112 807 979<br>+94 777 605 000</span></a></li>
-                                    <li><a href="#"><span class="icon icon-envelope"></span><span
-                                                class="text">info@salonzen.com</span></a></li>
+                                    <li><span class="icon icon-envelope"></span><span
+                                                class="text">info@salonzen.com</span></li>
                                 </ul>
                             </div>
                         </div>
