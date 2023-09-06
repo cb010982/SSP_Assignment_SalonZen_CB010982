@@ -272,9 +272,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 ftco-animate">
-                    <!--	<div class="pricing-entry active pb-5 text-center">-->
                     <div class="pricing-entry pb-5 text-center">
-                        <!--<div class="pricing-entry active pb-5 text-center">  // to get the pink outline permanently-->
                         <div>
                             <h3 class="mb-4">Manicure</h3>
                         </div>
@@ -373,9 +371,6 @@
                         </a>
                         <div class="text py-4 d-block">
                             <div class="meta">
-                                <!--          <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>-->
                             </div>
                             <h3 class="heading mt-2"><a href="#">DreamSkin Night Cream</a></h3>
                             <p>Our night creams provide skin repair and renewal Where your skin undergoes a natural repair
@@ -389,9 +384,6 @@
                         </a>
                         <div class="text py-4 d-block">
                             <div class="meta">
-                                <!--          <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>-->
                             </div>
                             <h3 class="heading mt-2"><a href="#">Pure Radiance Vitamin C Boost Serum</a></h3>
                             <p>One of our best facial serums for oily and acne-prone skins.</p>
@@ -404,9 +396,6 @@
                         </a>
                         <div class="text py-4 d-block">
                             <div class="meta">
-                                <!--          <div><a href="#">Sept 10, 2018</a></div>
-                  <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>-->
                             </div>
                             <h3 class="heading mt-2"><a href="#">Ageless Elegance Renewal Cream</a></h3>
                             <p>Our well known anti-aging cream reduces the appearance of fine lines and wrinkles on your
@@ -441,6 +430,7 @@
                         </div>
                     </div>
                 </div>
+               
                 <div class="col-md-6 appointment pl-md-5 ftco-animate">
                     <h3 class="mb-3">About Us</h3>
                         <div class="row form-group">
@@ -451,46 +441,8 @@
                           <p><a href="#" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
                         </div>
                 </div>
-                <!--
-                <div class="col-md-6 appointment pl-md-5 ftco-animate">
-                    <h3 class="mb-3">Appointments</h3>
-                    <form action="{{ route('submit-appointment') }}" method="POST" class="appointment-form">
-                        @csrf
-                        @if (session('success'))
-                            <div class="alert alert-success">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
-                        <div class="row form-group d-flex">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="first_name" placeholder="First Name">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="last_name" placeholder="Last Name">
-                            </div>
-                        </div>
-                        <div class="row form-group d-flex">
-                            <div class="col-md-6">
-                                <div class="input-wrap">
-                                    <div class="icon"><span class="ion-md-calendar"></span></div>
-                                    <input type="text" id="appointment_date" class="form-control"
-                                        name="appointment_date" placeholder="Date">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="phone" placeholder="Phone">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="message" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Book now !" class="btn btn-white btn-outline-white py-3 px-4">
-                        </div>
-                    </form>
-                </div>
-            -->
+                
+        
             </div>
         </div>
     </section>

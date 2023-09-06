@@ -31,74 +31,17 @@
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
 
-
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav> --}}
         <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/bg_1.jpg') }}');"
             data-stellar-background-ratio="0.5">
             <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
                 <div class="container">
-                    <a class="navbar-brand" href="#home">SALON ZEN</a>
+                    <a class="navbar-brand" href="/home">SALON ZEN</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="oi oi-menu"></span> Menu
@@ -106,7 +49,7 @@
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a href="/home" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Appointments</a></li>
@@ -153,7 +96,7 @@
                     data-scrollax-parent="true">
                     <div class="col-md-8 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                         <div class="icon">
-                            <a href="#home" class="logo">
+                            <a href="/home" class="logo">
                                 <span class="flaticon-flower"></span>
                                 <h1>Salon Zen</h1>
                             </a>
@@ -165,7 +108,7 @@
                             and Elegance Unite</p>
 
                         <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#"
-                                class="btn btn-white btn-outline-white px-4 py-3">View Our Services</a></p>
+                                class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
                     </div>
                 </div>
             </div>
@@ -203,9 +146,6 @@
                                 <div class="text">
                                     <h3 class="heading"><a href="#">DreamSkin Night Cream</a></h3>
                                     <div class="meta">
-                                        <!--    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>-->
                                     </div>
                                 </div>
                             </div>
@@ -214,9 +154,6 @@
                                 <div class="text">
                                     <h3 class="heading"><a href="#">Pure Radiance Vitamin C Boost Serum</a></h3>
                                     <div class="meta">
-                                        <!--    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>-->
                                     </div>
                                 </div>
                             </div>
@@ -225,9 +162,6 @@
                                 <div class="text">
                                     <h3 class="heading"><a href="#" >Ageless Elegance Renewal Cream</a></h3>
                                     <div class="meta">
-                                        <!--    <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
-                        <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                        <div><a href="#"><span class="icon-chat"></span> 19</a></div>-->
                                     </div>
                                 </div>
                             </div>
@@ -264,12 +198,6 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center">
-
-                        <!--  <p> Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        <!-- Copyright &copy;<script>
-                            document.write(new Date().getFullYear());
-                        </script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-       Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.</p> -->
                         <p>Copyright &copy;
                             <script>
                                 document.write(new Date().getFullYear());

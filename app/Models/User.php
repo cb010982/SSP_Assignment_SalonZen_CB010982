@@ -26,6 +26,7 @@ class User extends Authenticatable
         'skin_type', 
         'allergies', 
         'additional_info',
+        'telephone',
     ];
 
     /**

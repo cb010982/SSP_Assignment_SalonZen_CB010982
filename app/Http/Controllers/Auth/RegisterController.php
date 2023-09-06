@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Normal'])],
             'allergies' => ['nullable', 'string', 'max:255'],
             'additional_info' => ['nullable', 'string'],
+            'telephone' => ['nullable', 'string', 'max:10'],
         ]);
     }
 
@@ -79,6 +80,7 @@ class RegisterController extends Controller
             'skin_type' => $data['skin_type'],
             'allergies' => $data['allergies'],
             'additional_info' => $data['additional_info'],
+            'telephone' => $data['telephone'],
         ]);
     }
 }
