@@ -41,14 +41,14 @@
             data-stellar-background-ratio="0.5">
             <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
                 <div class="container">
-                    <a class="navbar-brand" href="/home">SALON ZEN</a>
+                    <a class="navbar-brand" href="/">SALON ZEN</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="oi oi-menu"></span> Menu
                     </button>
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"><a href="/home" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
                             <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
@@ -96,7 +96,7 @@
                     data-scrollax-parent="true">
                     <div class="col-md-8 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
                         <div class="icon">
-                            <a href="/home" class="logo">
+                            <a href="/" class="logo">
                                 <span class="flaticon-flower"></span>
                                 <h1>Salon Zen</h1>
                             </a>

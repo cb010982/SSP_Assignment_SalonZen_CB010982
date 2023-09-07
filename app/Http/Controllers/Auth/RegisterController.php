@@ -23,6 +23,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    
 
     use RegistersUsers;
 
@@ -62,6 +63,7 @@ class RegisterController extends Controller
             'additional_info' => ['nullable', 'string'],
             'telephone' => ['required', 'numeric', 'digits:10'],
         ]);
+        
     }
 
     /**
