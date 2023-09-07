@@ -283,7 +283,7 @@
                             <li>Gel Manicure : Rs 4000</li>
                             <li>French Manicure : Rs 3500</li>
                         </ul>
-                        <p class="button text-center"><a href="#appointments"
+                        <p class="button text-center"><a href="#"
                                 class="btn btn-primary btn-outline-primary px-4 py-3">More</a></p>
                     </div>
                 </div>

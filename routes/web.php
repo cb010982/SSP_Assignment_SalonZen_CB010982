@@ -15,7 +15,7 @@ use Illuminate\Http\Request;
 */
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')/*->middleware('verified')*/;
 
 Route::get('/email/verify', function () {
     return view('auth.verify');

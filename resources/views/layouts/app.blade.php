@@ -142,7 +142,7 @@
                         <div class="ftco-footer-widget mb-4">
                             <h2 class="ftco-heading-2">New Arrivals</h2>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/work-11.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url('{{asset('images/work-11.jpg')}}');"></a>
                                 <div class="text">
                                     <h3 class="heading"><a href="#">DreamSkin Night Cream</a></h3>
                                     <div class="meta">
@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/product3.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url('{{asset('images/product3.jpg')}}');"></a>
                                 <div class="text">
                                     <h3 class="heading"><a href="#">Pure Radiance Vitamin C Boost Serum</a></h3>
                                     <div class="meta">
@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(images/product4.jpg);"></a>
+                                <a class="blog-img mr-4" style="background-image: url('{{asset('images/product4.jpg')}}');"></a>
                                 <div class="text">
                                     <h3 class="heading"><a href="#" >Ageless Elegance Renewal Cream</a></h3>
                                     <div class="meta">
@@ -171,12 +171,12 @@
                         <div class="ftco-footer-widget mb-4 ml-md-4">
                             <h2 class="ftco-heading-2">Most rated</h2>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="py-2 d-block">Body Care</a></li>
+                                <li><a href="#" class="py-2 d-block">Pedicure</a></li>
                                 <li><a href="#" class="py-2 d-block">Massage</a></li>
-                                <li><a href="#" class="py-2 d-block">Hydrotherapy</a></li>
-                                <li><a href="#" class="py-2 d-block">Spray tanning</a></li>
+                                <li><a href="#" class="py-2 d-block">Hair coloring</a></li>
+                                <li><a href="#" class="py-2 d-block">Manicure</a></li>
                                 <li><a href="#" class="py-2 d-block">Microblading</a></li>
-                                <li><a href="#" class="py-2 d-block">Scalp treatments</a></li>
+                                <li><a href="#" class="py-2 d-block">Hair treatments</a></li>
                             </ul>
                         </div>
                     </div>
