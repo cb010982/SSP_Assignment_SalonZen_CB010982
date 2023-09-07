@@ -54,12 +54,12 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['nullable', 'string', 'max:255'], 
-            'date_of_birth' => ['nullable', 'date'], 
-            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Normal'])],
+            'address' => ['required', 'string', 'max:255'], 
+            'date_of_birth' => ['required', 'date'], 
+            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Sensitive'])],
             'allergies' => ['nullable', 'string', 'max:255'],
             'additional_info' => ['nullable', 'string'],
-            'telephone' => ['nullable', 'string', 'max:10'],
+            'telephone' => ['required', 'numeric', 'digits:10'],
         ]);
     }
 
