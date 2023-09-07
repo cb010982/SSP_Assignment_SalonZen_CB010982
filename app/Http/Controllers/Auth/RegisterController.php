@@ -58,9 +58,8 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'address' => ['required', 'string', 'max:255'], 
             'date_of_birth' => ['required', 'date',new VerifyDate], 
-            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Sensitive'])],
+            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Sensitive','Normal'])],
             'allergies' => ['nullable', 'string', 'max:255'],
-            'additional_info' => ['nullable', 'string'],
             'telephone' => ['required', 'numeric', 'digits:10'],
         ]);
         
@@ -82,7 +81,6 @@ class RegisterController extends Controller
             'date_of_birth' => $data['date_of_birth'], 
             'skin_type' => $data['skin_type'],
             'allergies' => $data['allergies'],
-            'additional_info' => $data['additional_info'],
             'telephone' => $data['telephone'],
         ]);
     }
