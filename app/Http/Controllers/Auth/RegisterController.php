@@ -55,15 +55,15 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users',new ValidEmail],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', new ValidEmail],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'address' => ['required', 'string', 'max:255'], 
-            'date_of_birth' => ['required', 'date',new VerifyDate], 
-            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Sensitive','Normal'])],
+            'address' => ['required', 'string', 'max:255'],
+            'date_of_birth' => ['required', 'date', new VerifyDate],
+            'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Sensitive', 'Normal'])],
             'allergies' => ['nullable', 'string', 'max:255'],
             'telephone' => ['required', 'numeric', 'digits:10'],
+            'role' => ['required', 'string', Rule::in(['customer', 'admin'])], 
         ]);
-        
     }
 
     /**
@@ -74,6 +74,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $role = $data['role'];
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -83,6 +85,7 @@ class RegisterController extends Controller
             'skin_type' => $data['skin_type'],
             'allergies' => $data['allergies'],
             'telephone' => $data['telephone'],
+            'role' => $role,
         ]);
     }
 }

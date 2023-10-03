@@ -453,7 +453,12 @@ pre {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
-
+  
+.flaticonimage{
+  height:50px;
+  width:50px;
+  margin:30px;
+}
 .container {
   width: 100%;
   padding-right: 15px;
@@ -3186,9 +3191,16 @@ input[type="button"].btn-block {
     text-decoration: none; }
   .nav-link.disabled {
     color: #6c757d; }
-.nav-item:hover{
+.nav-item:hover {
   color:#fa5bdd;
 }
+.nav-link a:hover, .nav-link a:active, .nav-link a:focus {
+  color: #fa5bdd; }
+
+.nav-link.active{
+  color:#fa5bdd;
+}
+
 .nav-tabs {
   border-bottom: 1px solid #dee2e6; }
   .nav-tabs .nav-item {
@@ -7796,7 +7808,8 @@ h1, h2, h3, h4, h5,
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease; 
+  margin-bottom: 20px;}
   @media (max-width: 767.98px) {
     .pricing-entry {
       margin-bottom: 4em; } }
@@ -8365,7 +8378,7 @@ textarea.form-control {
       font-weight: 400; }
       .blog-entry .text .heading a {
         color: #000; }
-        .blog-entry .text .heading a:hover, .blog-entry .text .heading a:focus, .blog-entry .text .heading a:active {
+        .blog-entry .text .heading a:hover, .blog-entry .text .heading a:focus, .blog-entry .text .heading a:active, .nav-item.active {
           color: #fa5bdd; }
   .blog-entry .meta > div {
     display: inline-block;

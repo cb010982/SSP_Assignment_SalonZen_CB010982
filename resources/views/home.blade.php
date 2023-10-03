@@ -14,7 +14,7 @@
                     <div class="media d-block text-center block-6 services">
                         <div class="icon d-flex mb-3"><span class="flaticon-facial-treatment"></span></div>
                         <div class="media-body">
-                            <h3 class="heading">Skin &amp; Beauty Care</h3>
+                            <h3 class="heading">Facials</h3>
                             <p>Elevate your beauty with our expert skin care services, designed to enhance your natural
                                 charm and leave you feeling fabulous.</p>
                         </div>
@@ -290,12 +290,12 @@
                 <div class="col-md-3 ftco-animate">
                     <div class="pricing-entry pb-5 text-center">
                         <div>
-                            <h3 class="mb-4">Massage</h3>
+                            <h3 class="mb-4">Facial</h3>
 
                         </div>
                         <ul>
                             <li>Collagen Facial : Rs 15000</li>
-                            <li>Hydrating Facial - Rs.20000</li>
+                            <li>Hydrating Facial : Rs 20000</li>
                             <li>Anti-Aging Facial : Rs 35000</li>
                             <li>Gold Facial : Rs 30000</li>
                             <li>Exfoliating Facial : Rs 15000</li>
@@ -438,7 +438,7 @@
                             Enjoy a complimentary beverage as you relax in our chic waiting area, and let our team pamper you with the care and attention you deserve. 
                             At Salon Zen, we're committed to sustainability. We use eco-friendly products and take steps to minimize our environmental footprint, because beauty should never come at the expense of our planet.
                             Join us at Salon Zen and discover a world of beauty and relaxation that's all about you. We can't wait to welcome you into our family!</p>
-                          <p><a href="#" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
+                          <p><a href="/appointments" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
                         </div>
                 </div>
                 

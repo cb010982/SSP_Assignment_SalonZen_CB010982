@@ -49,10 +49,11 @@
                     <div class="collapse navbar-collapse" id="ftco-nav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link">Appointments</a></li>
+                            <li class="nav-item"><a href="/services" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="/products" class="nav-link">Products</a></li>
+                            <li class="nav-item"><a href="/team" class="nav-link">Team</a></li>
+                            <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
+                            <li class="nav-item"><a href="/appointments" class="nav-link">Appointments</a></li>
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
@@ -107,7 +108,7 @@
                         <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Where Beauty
                             and Elegance Unite</p>
 
-                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#"
+                        <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="/appointments"
                                 class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
                     </div>
                 </div>

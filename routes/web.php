@@ -16,6 +16,21 @@ use Illuminate\Http\Request;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::view('/services', 'services');
+Route::view('/appointments','appointments');
+Route::view('/products','products');
+Route::view('/team','team');
+Route::view('/pricing','prices');
+
+
+Route::prefix('admin')->middleware('admin')->group(function () {
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/products', 'AdminController@products')->name('admin.products');
+    Route::get('/services', 'AdminController@services')->name('admin.services');
+});
+
+Route::get('/admin/register', 'AdminRegisterController@showRegistrationForm')->name('admin.register');
+
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
