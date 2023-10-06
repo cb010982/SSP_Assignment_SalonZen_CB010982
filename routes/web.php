@@ -3,6 +3,10 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,27 +28,72 @@ Route::view('/team','team');
 Route::view('/pricing','prices');
 Route::view('/cart','cart');
 
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+    Route::post('/ajax-update-product/{product}', 'App\Http\Controllers\Admin\ProductController@ajaxUpdate');
+    Route::delete('/ajax-delete-product/{product}', 'App\Http\Controllers\Admin\ProductController@ajaxDelete');
+});
+
+//Route::get('/admin/products', 'Admin\ProductController@index')->name('admin.products.index');
+
+
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     Route::post('/ajax-update-user/{user}', [App\Http\Controllers\Admin\UserController::class, 'ajaxUpdate']);
 });
 
+Route::get('/carts', [CartController::class, 'showForm'])->name('carts.create');
+Route::post('/carts', [CartController::class, 'store'])->name('carts.store');
+
+Route::get('/appointments', [AppointmentController::class, 'showForm'])->name('appointments.create');
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+
 Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 })->middleware('admin')->name('admin.dashboard');
+
+
+// Route::get('/admin/products', 'Admin\ProductController@index')->name('admin.products.index');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+});
+
+
+Route::post('/cart', [CartController::class, 'store']);
 
 Route::get('/admin/users', function () {
 
 })->name('admin.users.index');
 
+ Route::get('/admin/products', function () {
 
+ })->name('admin.products.index');
 
+Route::get('/admin/services', function () {
+
+})->name('admin.services.index');
+
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/services', [ServicesController::class, 'index']);
 
 Route::resource('admin/users', 'App\Http\Controllers\Admin\UserController')->names([
     'index' => 'admin.users.index',
-
 ]);
 
+
+
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::resource('products', ProductController::class);
+});
+
+
+
+
+ Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
+
+Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
 
 Route::get('/customer/login', 'Auth\LoginController@showCustomerLoginForm')->name('customer.login');
 Route::post('/customer/login', 'Auth\LoginController@login')->name('customer.login.submit');
@@ -88,4 +137,6 @@ Route::get('/profile', function () {
 })->middleware(['auth', 'verified']);
 
 
+// Route::get('/admin/products', 'ProductController@index')->name('admin.products.index');
 
+// Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');

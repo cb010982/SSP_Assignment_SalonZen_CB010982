@@ -6,10 +6,11 @@
     <div class="overlay"></div>
     <div class="col-md-6 appointment pl-md-5 ftco-animate">
         <h3 class="mb-3">Shopping Cart</h3>
-        <form action="#" class="appointment-form">
+        <form action="{{ route('carts.store') }}" method="POST" class="appointment-form">
+            @csrf
             <div class="row form-group d-flex">
                 <div class="col-md-6">
-                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="text" name="name" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="row form-group d-flex">
@@ -21,7 +22,7 @@
                         }
                      </style>
                     <label style="color: rgb(255, 255, 255); font-weight: bold;">Product</label>
-                    <select id="product" class="form-control" onchange="updatePrice()">
+                    <select id="product" class="form-control" name="product" onchange="updatePrice()">
                         <option value="" disabled selected>Select a product</option>
                         <option value="5000.00">DreamSkin Night Cream</option>
                         <option value="6000.00">Pure Radiance Vitamin C Boost Serum</option>
@@ -36,29 +37,29 @@
                 </div>
                 <div class="col-md-3">
                     <label style="color: rgb(255, 255, 255); font-weight: bold;">Quantity</label>
-                    <input type="number" id="quantity" class="form-control" min="1" value="1" onchange="updatePrice()">
+                    <input type="number" id="quantity" class="form-control" name="quantity" min="1" value="1" onchange="updatePrice()">
                 </div>
                 <div class="col-md-4">
                     <label style="color: rgb(255, 255, 255); font-weight: bold;">Price</label>
-                    <input type="text" id="price" class="form-control" placeholder="Rs. 0.00" readonly>
+                    <input type="text" id="price" class="form-control" name="price" placeholder="Rs. 0.00" readonly>
                 </div>
             </div> 
-        </form>
+       
 <h3 class="mb-3">Payment Method</h3>
-    <form action="#" class="appointment-form">
+   
         <div class="row form-group d-flex">
             <div class="col-md-6">
                 <label style="color: rgb(255, 255, 255);">Payment Method:</label><br>
-                <input type="radio" id="visa" name="payment" value="visa">
+                <input type="radio" id="visa" name="payment_method" value="visa">
                 <label for="visa" style="color: black">Visa</label><br>
-                <input type="radio" id="mastercard" name="payment" value="mastercard">
+                <input type="radio" id="mastercard" name="payment_method" value="mastercard">
                 <label for="mastercard" style="color: black">Mastercard</label><br>
             </div>
             
         </div>
         <div class="row form-group d-flex">
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Cardholder Name">
+                <input type="text" class="form-control" name="cardholder_name" placeholder="Cardholder Name">
             </div>
             <div class="col-md-6">
                 <div class="col-md-6">
@@ -68,10 +69,10 @@
         </div>
         <div class="row form-group d-flex">
             <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="Card Number" maxlength="16">
+                <input type="text" class="form-control" placeholder="Card Number" name="card_number" maxlength="16">
             </div>
             <div class="col-md-2">
-                <input type="text" id='cvc' maxlength='3' class='form-control' placeholder='CVC'>
+                <input type="text" id='cvc' maxlength='3' class='form-control' name="cvc" placeholder='CVC'>
             </div>
         </div> 
         
@@ -80,7 +81,7 @@
             <div class="form-group">
                 <input type="submit" value="Order" class="btn btn-white btn-outline-white py-3 px-4">
             </div>
-        </form>
+        
         </div>
     </form>
 </div>   

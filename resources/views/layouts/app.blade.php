@@ -54,6 +54,7 @@
                             <li class="nav-item"><a href="/team" class="nav-link">Team</a></li>
                             <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
                             <li class="nav-item"><a href="/appointments" class="nav-link">Appointments</a></li>
+                            <li class="nav-item"><a href="/cart" class="nav-link">Cart</a></li>
                             @if(Auth::user() && Auth::user()->role == 'admin')
                             <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Admin Dashboard</a></li>
                             @endif
@@ -82,7 +83,6 @@
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             class="d-none">
                                             @csrf
