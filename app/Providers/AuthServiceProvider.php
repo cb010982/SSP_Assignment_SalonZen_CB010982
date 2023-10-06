@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\Gate;
+use App\Services\AuthService; // Import the AuthService class
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,6 +22,13 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->registerPolicies();
+
+        // Define the 'admin' gate using the AuthService
+        Gate::define('admin', function ($user) {
+            $authService = app(AuthService::class); // Resolve the AuthService from the service container
+            return $authService->userIsAdmin($user);
+        });
     }
 }
+

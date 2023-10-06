@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
@@ -62,7 +61,7 @@ class RegisterController extends Controller
             'skin_type' => ['nullable', 'string', 'max:255', Rule::in(['Dry', 'Oily', 'Combination', 'Sensitive', 'Normal'])],
             'allergies' => ['nullable', 'string', 'max:255'],
             'telephone' => ['required', 'numeric', 'digits:10'],
-            'role' => ['required', 'string', Rule::in(['customer', 'admin'])], 
+           // 'role' => ['required', 'string', Rule::in(['customer', 'admin'])], 
         ]);
     }
 
@@ -74,7 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $role = $data['role'];
+       // $role = $data['role'];
 
         return User::create([
             'name' => $data['name'],
@@ -85,7 +84,7 @@ class RegisterController extends Controller
             'skin_type' => $data['skin_type'],
             'allergies' => $data['allergies'],
             'telephone' => $data['telephone'],
-            'role' => $role,
+          //  'role' => $role,
         ]);
     }
 }

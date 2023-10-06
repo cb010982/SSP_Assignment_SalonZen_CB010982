@@ -47,7 +47,7 @@
             <div><img class="flaticonimage" src="images/bride.png" ></div>
             <div class="media-body">
               <h3 class="heading">Bridal Dressing &amp; Make-Up</h3>
-              <p>tDiscover the perfect bridal look with us. Our expert team specializes in creating dream wedding styles that capture your unique 
+              <p>Discover the perfect bridal look with us. Our expert team specializes in creating dream wedding styles that capture your unique 
                 beauty and make your special day truly unforgettable.</p>
             </div>
           </div>      

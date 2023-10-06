@@ -2,6 +2,7 @@
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +22,48 @@ Route::view('/appointments','appointments');
 Route::view('/products','products');
 Route::view('/team','team');
 Route::view('/pricing','prices');
+Route::view('/cart','cart');
 
-
-Route::prefix('admin')->middleware('admin')->group(function () {
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/products', 'AdminController@products')->name('admin.products');
-    Route::get('/services', 'AdminController@services')->name('admin.services');
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
+    Route::resource('users', 'App\Http\Controllers\Admin\UserController');
+    Route::post('/ajax-update-user/{user}', [App\Http\Controllers\Admin\UserController::class, 'ajaxUpdate']);
 });
 
-Route::get('/admin/register', 'AdminRegisterController@showRegistrationForm')->name('admin.register');
+Route::get('/admin/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware('admin')->name('admin.dashboard');
+
+Route::get('/admin/users', function () {
+
+})->name('admin.users.index');
+
+
+
+
+Route::resource('admin/users', 'App\Http\Controllers\Admin\UserController')->names([
+    'index' => 'admin.users.index',
+
+]);
+
+
+Route::get('/customer/login', 'Auth\LoginController@showCustomerLoginForm')->name('customer.login');
+Route::post('/customer/login', 'Auth\LoginController@login')->name('customer.login.submit');
+
+Route::get('/admin/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+
+/*Route::get('/admin/users/create', function () {
+    // Your code here
+})->name('admin.users.create');*/
+
+Route::post('/admin/users/{user}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
+
+Route::delete('/admin/users/{user}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('admin.users.destroy');
+
+Route::post('/admin/ajax-update-user/{id}', 'Admin\UserController@ajaxUpdate');
+Route::put('/admin/ajax-insert-user', 'Admin\UserController@ajaxStore');
+
 
 
 Route::get('/email/verify', function () {

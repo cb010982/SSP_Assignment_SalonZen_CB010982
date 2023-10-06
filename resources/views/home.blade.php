@@ -426,7 +426,7 @@
                         <div>
                             <h3 class="mb-3">Opening Hours</h3>
                             <p class="day"><strong>Monday - Friday</strong></p>
-                            <span>08:00am - 09:00pm</span>
+                            <span>08:00am - 08:00pm</span>
                         </div>
                     </div>
                 </div>

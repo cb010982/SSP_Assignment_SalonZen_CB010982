@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
@@ -15,9 +16,26 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user() && auth()->user()->isAdmin()) {
-            return $next($request);
+      
+            if (Auth::user() &&  Auth::user()->role == 'admin') {
+                return $next($request);
+            }
+        
+            return redirect('/');
         }
-        return redirect('/'); // Redirect unauthorized users to the home page or another route    
+        
+    /**
+     * Check if the user is an admin based on specific criteria.
+     *
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     * @return bool
+     */
+    protected function userIsAdmin($user)
+    {
+        // Implement your admin-checking logic here
+        // For example, you could check for a specific role or permission
+
+        // Replace the condition below with your own logic
+        return $user->hasRole('admin'); // Assuming you have a role-based system
     }
 }
