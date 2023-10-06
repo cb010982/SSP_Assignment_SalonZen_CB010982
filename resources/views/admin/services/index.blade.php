@@ -5,40 +5,27 @@
 <div class="container">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <h1>Users</h1>
-    <button id="create-user-button">Create Product</button>
+    <h1>Services</h1>
+    <button id="create-service-button">Create Service</button>
     <table>
         <!-- Table headers -->
         <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Telephone</th>
-            <th>Address</th>
-            <th>Date Of Birth</th>
-            <th>Skin Type</th>
-            <th>Allergies</th>
-            <th>Password</th>
-            <th>Actions</th>
         </tr>
     
         <!-- Table data -->
-        @foreach ($users as $user)
+        @foreach ($services as $service)
         <tr>
-            <td class="id" style="display: none;">{{ $user->id }}</td>
-            <td class="name">{{ $user->name }}</td>
-            <td class="email">{{ $user->email }}</td>
-            <td class="telephone">{{ $user->telephone }}</td>
-            <td class="address">{{ $user->address }}</td>
-            <td class="date_of_birth">{{ $user->date_of_birth }}</td>
-            <td class="skin_type">{{ $user->skin_type }}</td>
-            <td class="allergies">{{ $user->allergies }}</td>
-            <td class="password">{{ $user->password }}</td>
+            <td class="id" style="display: none;">{{ $service->id }}</td>
+            <td class="name">{{ $service->name }}</td>
+            <td class="description">{{ $service->description }}</td>
             <td>
                 <button class="edit-button">Edit</button>
                 <button class="save-button" style="display: none;">Save</button>
             </td>
             <td>
-                <form method="POST" action="{{ route('admin.users.destroy', $user) }}">
+                <form method="POST" action="{{ route('admin.services.destroy', $service) }}">
                     @csrf
                     @method('DELETE')
                     <button type="submit" >Delete</button>
@@ -51,11 +38,11 @@
     
 </div>
 <script>
-document.querySelector('#create-user-button').addEventListener('click', () => {
+document.querySelector('#create-service-button').addEventListener('click', () => {
     const table = document.querySelector('table');
     const newRow = document.createElement('tr');
 
-    const fields = ['name', 'email', 'telephone', 'address', 'date_of_birth', 'skin_type', 'allergies', 'password'];
+    const fields = ['name', 'description'];
     fields.forEach(field => {
         const newCell = document.createElement('td');
         newCell.classList.add(field);
@@ -71,10 +58,11 @@ document.querySelector('#create-user-button').addEventListener('click', () => {
 
     table.appendChild(newRow);
 });
+
 document.querySelectorAll('.edit-button').forEach((button) => {
     button.addEventListener('click', (event) => {
         const row = event.target.parentNode.parentNode;
-        const fields = ['name', 'email', 'telephone', 'address', 'date_of_birth', 'skin_type', 'allergies', 'password'];
+        const fields = ['name', 'description'];
         fields.forEach(field => {
             const value = row.querySelector('.' + field).innerText;
             row.querySelector('.' + field).innerHTML = `<input type="text" value="${value}">`;
@@ -84,25 +72,25 @@ document.querySelectorAll('.edit-button').forEach((button) => {
         row.querySelector('.save-button').style.display = 'block';
     });
 });
+
 document.querySelector('table').addEventListener('click', (event) => {
     if (event.target.classList.contains('save-button')) {
         const button = event.target;
         const row = button.parentNode.parentNode;
-        const userId = row.querySelector('.id') ? row.querySelector('.id').innerText : null;  // get the user's ID from the hidden field if it exists
+        const serviceId = row.querySelector('.id') ? row.querySelector('.id').innerText : null;  
 
-        const data = { id: userId };
-        const fields = ['name', 'email', 'telephone', 'address', 'date_of_birth','skin_type','allergies','password'];
+        const data = { id: serviceId };
+        const fields = ['name', 'description'];
         fields.forEach(field => {
             data[field] = row.querySelector('.' + field + ' input').value;
         });
 
-        // Send a POST request to the server
         let url, method;
-        if (userId) {  // if updating an existing user
-            url = '/admin/ajax-update-user/' + userId;
+        if (serviceId) {  
+            url = '/admin/ajax-update-service/' + serviceId;
             method = 'POST';
-        } else {  // if creating a new user
-            url = '/admin/ajax-create-user';
+        } else {  
+            url = '/admin/ajax-create-service';
             method = 'PUT';
         }
 
@@ -110,7 +98,7 @@ document.querySelector('table').addEventListener('click', (event) => {
             method: method,
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),  // get CSRF token from meta tag
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),  
             },
             body: JSON.stringify(data)
         })
@@ -120,9 +108,9 @@ document.querySelector('table').addEventListener('click', (event) => {
             }
             return response.json();
         }).then(json => {
-            console.log(json);  // handle the response from the server
+            console.log(json);  
 
-            // Change input fields back to text
+           
             fields.forEach(field => {
                 row.querySelector('.' + field).innerHTML = data[field];
             });

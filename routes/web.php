@@ -3,6 +3,8 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AdminProductController;
+use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\AppointmentController;
@@ -18,6 +20,8 @@ use App\Http\Controllers\CartController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -28,11 +32,12 @@ Route::view('/team','team');
 Route::view('/pricing','prices');
 Route::view('/cart','cart');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
-    Route::post('/ajax-update-product/{product}', 'App\Http\Controllers\Admin\ProductController@ajaxUpdate');
-    Route::delete('/ajax-delete-product/{product}', 'App\Http\Controllers\Admin\ProductController@ajaxDelete');
-});
+// Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+//     Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
+//     Route::post('/ajax-update-product/{product}', 'App\Http\Controllers\Admin\ProductController@ajaxUpdate');
+//     Route::delete('/ajax-delete-product/{product}', 'App\Http\Controllers\Admin\ProductController@ajaxDelete');
+// });
+
 
 //Route::get('/admin/products', 'Admin\ProductController@index')->name('admin.products.index');
 
@@ -40,6 +45,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
     Route::resource('users', 'App\Http\Controllers\Admin\UserController');
     Route::post('/ajax-update-user/{user}', [App\Http\Controllers\Admin\UserController::class, 'ajaxUpdate']);
+    Route::post('/ajax-update-product/{product}', [App\Http\Controllers\Admin\AdminProductController::class, 'ajaxUpdate']);
+    Route::post('/ajax-update-service/{service}', [App\Http\Controllers\Admin\AdminServiceController::class, 'ajaxUpdate']);
 });
 
 Route::get('/carts', [CartController::class, 'showForm'])->name('carts.create');
@@ -53,23 +60,14 @@ Route::get('/admin/dashboard', function () {
 })->middleware('admin')->name('admin.dashboard');
 
 
-// Route::get('/admin/products', 'Admin\ProductController@index')->name('admin.products.index');
-
-
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::resource('products', 'App\Http\Controllers\Admin\ProductController');
-});
-
-
 Route::post('/cart', [CartController::class, 'store']);
 
 Route::get('/admin/users', function () {
 
 })->name('admin.users.index');
 
- Route::get('/admin/products', function () {
 
- })->name('admin.products.index');
+
 
 Route::get('/admin/services', function () {
 
@@ -85,21 +83,28 @@ Route::resource('admin/users', 'App\Http\Controllers\Admin\UserController')->nam
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::resource('products', ProductController::class);
+    Route::get('/products', [AdminProductController::class,'index'])->name('admin.products.index');
+    Route::get('/products/create', [AdminProductController::class,'create'])->name('admin.products.create');
+    Route::get('/products/edit', [AdminProductController::class,'edit'])->name('admin.products.edit');
+    
+    Route::get('/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/services', [AdminServiceController::class,'index'])->name('admin.services.index');
+    Route::get('/services/create', [AdminServiceController::class,'create'])->name('admin.services.create');
+    Route::get('/services/edit', [AdminServiceController::class,'edit'])->name('admin.services.edit');
+    Route::get('/services/delete', [AdminServiceController::class,'destroy'])->name('admin.services.destroy');
 });
 
 
 
-
- Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
+ //Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
 
 Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
 
 Route::get('/customer/login', 'Auth\LoginController@showCustomerLoginForm')->name('customer.login');
 Route::post('/customer/login', 'Auth\LoginController@login')->name('customer.login.submit');
 
-Route::get('/admin/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
-Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
 
 
 /*Route::get('/admin/users/create', function () {
@@ -107,13 +112,14 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 })->name('admin.users.create');*/
 
 Route::post('/admin/users/{user}', [App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.users.update');
-
+Route::post('/admin/products/{product}', [App\Http\Controllers\Admin\AdminProductController::class, 'update'])->name('admin.products.update');
 Route::delete('/admin/users/{user}', [App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('admin.users.destroy');
-
+Route::delete('/admin/products/{product}', [App\Http\Controllers\Admin\AdminProductController::class, 'destroy'])->name('admin.products.destroy');
 Route::post('/admin/ajax-update-user/{id}', 'Admin\UserController@ajaxUpdate');
 Route::put('/admin/ajax-insert-user', 'Admin\UserController@ajaxStore');
 
-
+Route::post('/admin/ajax-update-product/{id}', 'Admin\AdminProductController@ajaxUpdate');
+Route::put('/admin/ajax-insert-product', 'Admin\AdminProductController@ajaxStore');
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
@@ -140,3 +146,5 @@ Route::get('/profile', function () {
 // Route::get('/admin/products', 'ProductController@index')->name('admin.products.index');
 
 // Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
+
+

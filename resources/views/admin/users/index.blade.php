@@ -96,12 +96,11 @@ document.querySelector('table').addEventListener('click', (event) => {
             data[field] = row.querySelector('.' + field + ' input').value;
         });
 
-        // Send a POST request to the server
         let url, method;
-        if (userId) {  // if updating an existing user
+        if (userId) {  
             url = '/admin/ajax-update-user/' + userId;
             method = 'POST';
-        } else {  // if creating a new user
+        } else {  
             url = '/admin/ajax-create-user';
             method = 'PUT';
         }
@@ -120,9 +119,9 @@ document.querySelector('table').addEventListener('click', (event) => {
             }
             return response.json();
         }).then(json => {
-            console.log(json);  // handle the response from the server
+            console.log(json);  
 
-            // Change input fields back to text
+           
             fields.forEach(field => {
                 row.querySelector('.' + field).innerHTML = data[field];
             });

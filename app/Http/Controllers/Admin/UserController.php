@@ -61,7 +61,7 @@ class UserController extends Controller
     $user->date_of_birth = $request->input('date_of_birth');
     $user->skin_type = $request->input('skin_type');
     $user->allergies = $request->input('allergies');
-    $user->password = Hash::make($request->input('password'));  // hash the password before storing it
+    $user->password = Hash::make($request->input('password'));  
 
     if ($user->save()) {
         return response()->json(['status' => 'success', 'message' => 'User created successfully.']);

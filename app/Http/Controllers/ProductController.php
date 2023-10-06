@@ -17,5 +17,5 @@ class ProductController extends Controller
     }
     
 
-    // Rest of your controller methods...
+    
 }

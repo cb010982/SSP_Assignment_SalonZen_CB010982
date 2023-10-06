@@ -41,5 +41,5 @@ class Admin extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // Define relationships or methods specific to the Admin model here
+    
 }
