@@ -84,9 +84,9 @@ function confirmOrder(orderId) {
         url: '/cart/' + orderId + '/accept',
         type: 'GET',
         success: function(response) {
-            // Hide the buttons
+         
             document.getElementById('buttons' + orderId).style.display = 'none';
-            // Show the confirmed message
+           
             document.getElementById('confirmMessage' + orderId).style.display = 'block';
         }
     });
