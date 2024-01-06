@@ -19,7 +19,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->string('payment_method');
             $table->string('cardholder_name');
-            $table->string('expiry_date');
+            $table->date('expiry_date');
             $table->string('card_number');
             $table->string('cvc');
             $table->timestamps();

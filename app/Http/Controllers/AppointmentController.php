@@ -1,16 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Appointment; 
-
+use McKenziearts\Notify\Facades\LaravelNotify;
 class AppointmentController extends Controller
 {
     public function index()
     {
-        return view('appointments');
+        $appointments = Appointment::all(); 
+        return view('appointments', compact('appointments'));
     }
+
 
     public function store(Request $request)
     {
@@ -22,13 +24,15 @@ class AppointmentController extends Controller
             'phone' => 'required|digits:10',
         ]);
 
+        $userId = Auth::id();
+
         $appointment = new Appointment;
         $appointment->name = $validatedData['name'];
         $appointment->service = $validatedData['service'];
         $appointment->timeslot = $validatedData['timeslot'];
         $appointment->date = $validatedData['date'];
         $appointment->phone = $validatedData['phone'];
-
+        $appointment->user_id = $userId;
         $appointment->save();
 
         return redirect()->route('appointments.index')->with('success', 'Appointment created successfully');
@@ -37,5 +41,11 @@ class AppointmentController extends Controller
     {
         return view('appointments');
     }
+    public function showAppointmentHistory()
+{
+    $userAppointments = Auth::user()->appointments;
+
+    return view('appointmenthistory', compact('userAppointments'));
+}
 
 }

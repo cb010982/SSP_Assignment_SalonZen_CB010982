@@ -9,16 +9,21 @@ class Cart extends Model
 {
     use HasFactory;
 
+    public function details()
+    {
+        return $this->hasMany(CartDetail::class);
+    }
  
     protected $fillable = [
+        'user_id',
         'name',
         'product',
-        'quantity',
-        'price',
-        'payment_method',
         'cardholder_name',
-        'expiry_date',
-        'card_number',
         'cvc',
+        'card_number',
+        'expiry_date',
+        'payment_method',
+        'price',
+        'quantity'
     ];
 }

@@ -16,6 +16,12 @@ class ProductController extends Controller
         return view('products', compact('products'));
     }
     
+    public function show($id)
+{
+    $product = Product::find($id);
+
+    return view('cart', compact('product'));
+}
 
     
 }

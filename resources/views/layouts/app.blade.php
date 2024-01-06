@@ -30,18 +30,28 @@
 
     <link rel="stylesheet" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/icomoon.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+    @notifyCss
+
+  <!-- <link rel="icon" href="{{ asset ('img/Fevicon.png')}}" type="image/png"> -->
+
+  
+
+  @stack('styles')
+  
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
+    <x-notify::notify/>
     <div id="app">
         <div class="hero-wrap js-fullheight" style="background-image: url('{{ asset('images/bg_1.jpg') }}');"
             data-stellar-background-ratio="0.5">
             <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-                <div class="container">
-                    <a class="navbar-brand" href="/">SALON ZEN</a>
+            <a class="navbar-brand" href="/">SALON ZEN</a>
+            <div class="container">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="oi oi-menu"></span> Menu
@@ -54,7 +64,11 @@
                             <li class="nav-item"><a href="/team" class="nav-link">Team</a></li>
                             <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
                             <li class="nav-item"><a href="/appointments" class="nav-link">Appointments</a></li>
+                            <li class="nav-item"><a href="/appointmenthistory" class="nav-link">Appointment History</a></li>
                             <li class="nav-item"><a href="/cart" class="nav-link">Cart</a></li>
+                            <li class="nav-item"><a href="/carthistory" class="nav-link">Cart History</a></li>
+                            <li class="nav-item"><a href="/chat" class="nav-link">Chat</a></li>
+                            <li class="nav-item"><a href="/profileinfo" class="nav-link">Profile</a></li>
                             @if(Auth::user() && Auth::user()->role == 'admin')
                             <li class="nav-item"><a href="{{ route('admin.dashboard') }}" class="nav-link">Admin Dashboard</a></li>
                             @endif
@@ -240,7 +254,11 @@
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
         <script src="{{ asset('js/google-map.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       @stack('scripts')
+       
     </div>
+    @notifyJs
 </body>
 
 </html>

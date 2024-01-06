@@ -437,9 +437,10 @@
                            <p class="about_us">Established in 2005 , Salon Zen has been a trusted destination for beauty enthusiasts in Sri Lanka. Your comfort and satisfaction are paramount to us. Step into our serene oasis, designed to make you feel right at home. 
                             Enjoy a complimentary beverage as you relax in our chic waiting area, and let our team pamper you with the care and attention you deserve. 
                             At Salon Zen, we're committed to sustainability. We use eco-friendly products and take steps to minimize our environmental footprint, because beauty should never come at the expense of our planet.
-                            Join us at Salon Zen and discover a world of beauty and relaxation that's all about you. We can't wait to welcome you into our family!</p>
-                          <p><a href="/appointments" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
+                            Join us at Salon Zen and discover a world of beauty and relaxation that's all about you. We can't wait to welcome you into our family!</p></br>
                         </div>
+                        <p><a href="/appointments" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
+
                 </div>
                 
         

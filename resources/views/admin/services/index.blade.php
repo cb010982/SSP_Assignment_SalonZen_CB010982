@@ -1,63 +1,68 @@
-<!-- This is the landing page when you navigate to the users, products, or services section in the admin dashboard.-->
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<div class="container">
+<div class="main-panel">
+    <div class="row ">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <h1>Services</h1>
-    <button id="create-service-button">Create Service</button>
-    <table>
-        <!-- Table headers -->
+    <div class="col-12 grid-margin">
+         <div class="card">
+          <div class="card-body">
+           <h4 class="card-title">Manage Services</h4>
+    <button class="nav-link btn btn-success create-new-button" id="create-service-button">Create Service</button>
+    
+    
+    <div id="create-service-form" style="display: none;">
+                <form method="POST" action="/admin/ajax-create-service">
+                    @csrf
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="description" placeholder="Description">
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+    
+    
+    <div class="table-responsive">
+            <table class="table">
+            <thead>
         <tr>
             <th>Name</th>
             <th>Description</th>
         </tr>
-    
-        <!-- Table data -->
+        </thead>
+        <tbody>
         @foreach ($services as $service)
         <tr>
             <td class="id" style="display: none;">{{ $service->id }}</td>
             <td class="name">{{ $service->name }}</td>
             <td class="description">{{ $service->description }}</td>
             <td>
-                <button class="edit-button">Edit</button>
-                <button class="save-button" style="display: none;">Save</button>
+                <button id="badge-outline-warning" class="edit-button">Edit</button>
+                <button id="badge-outline-success"  class="save-button" style="display: none;">Save</button>
             </td>
             <td>
                 <form method="POST" action="{{ route('admin.services.destroy', $service) }}">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" >Delete</button>
+                    <button id="badge-outline-danger" class="delete-button"  type="submit" >Delete</button>
                 </form>
             </td>
         </tr>
         
         @endforeach
+        </tbody>
     </table>
-    
+    </div>
+  </div>
+ </div>
+</div>
+</div>
 </div>
 <script>
-document.querySelector('#create-service-button').addEventListener('click', () => {
-    const table = document.querySelector('table');
-    const newRow = document.createElement('tr');
 
-    const fields = ['name', 'description'];
-    fields.forEach(field => {
-        const newCell = document.createElement('td');
-        newCell.classList.add(field);
-        newCell.innerHTML = `<input type="text" value="">`;
-        newRow.appendChild(newCell);
-    });
-
-    const actionCell = document.createElement('td');
-    actionCell.innerHTML = `
-        <button class="save-button">Save</button>
-    `;
-    newRow.appendChild(actionCell);
-
-    table.appendChild(newRow);
+document.getElementById('create-service-button').addEventListener('click', () => {
+    document.getElementById('create-service-form').style.display = 'block';
 });
+
 
 document.querySelectorAll('.edit-button').forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -70,6 +75,33 @@ document.querySelectorAll('.edit-button').forEach((button) => {
 
         event.target.style.display = 'none';
         row.querySelector('.save-button').style.display = 'block';
+    });
+});
+
+document.getElementById('create-service-form').addEventListener('submit', (event) => {
+    event.preventDefault();  
+    const form = event.target;
+    const data = Object.fromEntries(new FormData(form).entries());  
+
+    fetch('/admin/ajax-create-service', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'), 
+        },
+        body: JSON.stringify(data)
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    }).then(json => {
+        if (json.success) {
+            form.style.display = 'none'; 
+          
+        }
+    }).catch(e => {
+        console.log('There was a problem with the AJAX request.', e);
     });
 });
 
@@ -109,8 +141,9 @@ document.querySelector('table').addEventListener('click', (event) => {
             return response.json();
         }).then(json => {
             console.log(json);  
-
-           
+            if (json.success) {
+                document.getElementById('create-service-form').style.display = 'none';
+            }
             fields.forEach(field => {
                 row.querySelector('.' + field).innerHTML = data[field];
             });

@@ -1,64 +1,72 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
-<div class="container">
-    <h1>Manage Products</h1>
-    <button id="create-product-button">Create Product</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($products as $product)
-            <tr data-id="{{ $product->id }}">
-                <td class="name">{{ $product->name }}</td>
-                <td class="description">{{ $product->description }}</td>
-                <td class="price">{{ $product->price }}</td>
-                <td class="actions">
-                    <button class="edit">Edit</button>
-                    <button class="save-button" style="display: none;">Save</button>
-                </td>
-                <td>
-                    <form method="POST" action="{{ route('admin.products.destroy', $product) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit">Delete</button>
-                    </form>  
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+<div class="main-panel">
+    <div class="row ">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+             <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body">
+                  <h4 class="card-title">Manage products</h4>
+                  <button class="nav-link btn btn-success create-new-button" id="create-product-button">Create Product</button>
+                    
+                    
+            <div id="create-product-form" style="display: none;">
+                <form method="POST" action="/admin/ajax-create-product">
+                    @csrf
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="text" name="description" placeholder="Description">
+                    <span>$</span><input type="number" name="price" placeholder="Price">
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+                  
+                  <div class="table-responsive">
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($products as $product)
+                        <tr>
+                        <td class="id" style="display: none;">{{ $product->id }}</td>
+                         
+                            <td class="name">{{ $product->name }}</td>
+                            <td class="description">{{ $product->description }}</td>
+                            <td class="price">{{ $product->price }}</td>
+                            <td >
+                                <button id="badge-outline-warning" class="edit-button">Edit</button>
+                                <button id="badge-outline-success" class="save-button" style="display: none;">Save</button>
+                            </td>
+                            <td>
+                                <form method="POST" action="{{ route('admin.products.destroy', $product) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button id="badge-outline-danger" class="delete-button" type="submit">Delete</button>
+                                </form>  
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
 
 <script>
- document.querySelector('#create-product-button').addEventListener('click', () => {
-    const table = document.querySelector('table');
-    const newRow = document.createElement('tr');
 
-    const fields = ['name', 'description', 'price'];
-    fields.forEach(field => {
-        const newCell = document.createElement('td');
-        newCell.classList.add(field);
-        newCell.innerHTML = `<input type="text" value="">`;
-        newRow.appendChild(newCell);
-    });
-
-    const actionCell = document.createElement('td');
-    actionCell.innerHTML = `
-        <button class="save-button">Save</button>
-    `;
-    newRow.appendChild(actionCell);
-
-    table.appendChild(newRow);
+document.getElementById('create-product-button').addEventListener('click', () => {
+    document.getElementById('create-product-form').style.display = 'block';
 });
 
-document.querySelectorAll('.edit').forEach((button) => {
+document.querySelectorAll('.edit-button').forEach((button) => {
     button.addEventListener('click', (event) => {
         const row = event.target.parentNode.parentNode;
         const fields = ['name', 'description', 'price'];
@@ -71,6 +79,36 @@ document.querySelectorAll('.edit').forEach((button) => {
         row.querySelector('.save-button').style.display = 'block';
     });
 });
+
+document.getElementById('create-product-form').addEventListener('submit', (event) => {
+    event.preventDefault();  
+    const form = event.target;
+    const data = Object.fromEntries(new FormData(form).entries());  
+
+    fetch('/admin/ajax-create-product', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'), 
+        },
+        body: JSON.stringify(data)
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    }).then(json => {
+        if (json.success) {
+            form.style.display = 'none'; 
+          
+        }
+    }).catch(e => {
+        console.log('There was a problem with the AJAX request.', e);
+    });
+});
+
+
+
 
 document.querySelector('table').addEventListener('click', (event) => {
     if (event.target.classList.contains('save-button')) {
@@ -108,66 +146,22 @@ document.querySelector('table').addEventListener('click', (event) => {
             return response.json();
         }).then(json => {
             console.log(json);  
-
-           
+            if (json.success) {
+                document.getElementById('create-product-form').style.display = 'none';
+            }
             fields.forEach(field => {
                 row.querySelector('.' + field).innerHTML = data[field];
             });
 
             button.style.display = 'none';
-            row.querySelector('.edit').style.display = 'block';
+            row.querySelector('.edit-button').style.display = 'block';
         }).catch(e => {
             console.log('There was a problem with the AJAX request.', e);
         });
     }
 });
-// document.querySelectorAll('.edit').forEach(function(editButton) {
-//     editButton.addEventListener('click', function() {
-//         var tr = this.closest('tr');
-//         var name = tr.querySelector('.name').textContent;
-//         var description = tr.querySelector('.description').textContent;
-//         var price = tr.querySelector('.price').textContent;
 
-//         tr.querySelector('.name').innerHTML = '<input type="text" value="' + name + '">';
-//         tr.querySelector('.description').innerHTML = '<input type="text" value="' + description + '">';
-//         tr.querySelector('.price').innerHTML = '<input type="number" step="0.01" value="' + price + '">';
 
-//         this.style.display = 'none';
-//         tr.querySelector('.save').style.display = 'inline';
-//     });
-// });
-
-// document.querySelectorAll('.save').forEach(function(saveButton) {
-//     saveButton.addEventListener('click', function() {
-//         var tr = this.closest('tr');
-//         var id = tr.dataset.id;
-//         var name = tr.querySelector('.name input').value;
-//         var description = tr.querySelector('.description input').value;
-//         var price = tr.querySelector('.price input').value;
-
-//         fetch('/admin/products/' + id, {
-//             method: 'PUT',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
-//             },
-//             body: JSON.stringify({
-//                 name: name,
-//                 description: description,
-//                 price: price
-//             })
-//         }).then(function(response) {
-//             return response.json();
-//         }).then(function(product) {
-//             tr.querySelector('.name').textContent = product.name;
-//             tr.querySelector('.description').textContent = product.description;
-//             tr.querySelector('.price').textContent = product.price;
-
-//             saveButton.style.display = 'none';
-//             tr.querySelector('.edit').style.display = 'inline';
-//         });
-//     });
-// });
 </script>
 
 @endsection

@@ -24,6 +24,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="col-md-6 appointment pl-md-5 ftco-animate">
                 <h3 class="mb-3">Appointments</h3>
                 <form action="{{ route('appointments.store') }}" method="POST" class="appointment-form">
@@ -132,7 +133,7 @@
                     </div>
                     <div class="row form-group d-flex">
                         <div class="form-group">
-                            <input type="submit" value="Order" class="btn btn-white btn-outline-white py-3 px-4">
+                            <input type="submit" value="Book Appintment" id="myButton" class="btn btn-white btn-outline-white py-3 px-4">
                         </div>
                     </div>
                 </form>
@@ -140,5 +141,10 @@
         </div>
     </div>
 </section>
-
+<script>
+document.getElementById('myButton').addEventListener('click', function() {
+    alert('Appoinment sent!');
+    connectify('success', 'Connection Found', 'Success Message Here')
+});
+</script>
 @endsection

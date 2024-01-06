@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Product;
 
 class CartController extends Controller
 {
@@ -12,32 +13,44 @@ class CartController extends Controller
         return view('carts');
     }
     
+    public function showproduct()
+    {
+        $products = Product::all();
+        return view('cart', compact('products'));
+    }
 
     public function store(Request $request)
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'product' => 'required|string|max:255',
-            'quantity' => 'required|integer|min:1',
-            'payment_method' => 'required|string|in:visa,mastercard',
             'cardholder_name' => 'required|string|max:255',
-            'expiry_date' => 'required|date|after:today',
-            'card_number' => 'required|string|size:16',
-            'cvc' => 'required|string|size:3',
+            'cvc' => 'required|string|max:255',
+            'card_number' => 'required|string|max:255',
+            'expiry_date' => 'required|string|max:255',
+            'payment_method' => 'required|string|max:255',
+            'price' => 'required|string|max:255',
+            'quantity' => 'required|string|max:255',
+            'cart_data'=>'required'
         ]);
 
-        $cart = new Cart;
-        $cart->name = $request->input('name');
-        $cart->product = $request->input('product');
-        $cart->quantity = $request->input('quantity');
-        $cart->payment_method = $request->input('payment_method');
-        $cart->cardholder_name = $request->input('cardholder_name');
-        $cart->expiry_date = $request->input('expiry_date');
-        $cart->card_number = $request->input('card_number');
-        $cart->cvc = $request->input('cvc');
-        $cart->save();
+        $userId = Auth::id();
 
-        return redirect()->route('carts.index')->with('success', 'Cart created successfully');
+        $cart = new Cart;
+        $cart->user_id = $userId;
+        $cart ->name = $validatedData['name'];
+        $cart ->product = $validatedData['product'];
+        $cart ->cvc = $validatedData['cvc'];
+        $cart ->cardholder_name = $validatedData['cardholder_name'];
+        $cart ->card_number = $validatedData['card_number'];
+        $cart ->expiry_date = $validatedData['expiry_date'];
+        $cart ->payment_method = $validatedData['payment_method'];
+        $cart ->price = $validatedData['price'];
+        $cart ->quantity = $validatedData['quantity'];
+        $cart ->cart_data = $validatedData['cart_data'];
+        $cart ->save();
+
+        return back()->with('success', 'Cart created successfully');
     }
     
     public function showForm()
@@ -45,5 +58,23 @@ class CartController extends Controller
         return view('carts');
     }
     
+    public function show($id)
+{
+    $product = Product::find($id);
+
+    return view('cart', compact('product'));
+}
+
+public function showCart()
+    {
+        // Get the current user's ID
+        $userId = Auth::id();
+
+        // Fetch the cart items based on the user ID
+        $cartItems = Cart::where('user_id', $userId)->get();
+
+        // Pass the cart items to the view
+        return view('carthistory', compact('cartItems'));
+    }
 
 }

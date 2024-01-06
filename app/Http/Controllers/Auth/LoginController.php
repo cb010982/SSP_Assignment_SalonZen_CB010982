@@ -44,25 +44,59 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
-    {
-        $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-            'role' => 'required|string', 
-        ]);
+    // public function login(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => 'required|string|email',
+    //         'password' => 'required|string',
+    //         'role' => 'required|string', 
+    //     ]);
 
     
-        $credentials = $request->only('email', 'password', 'role'); 
+    //     $credentials = $request->only('email', 'password', 'role'); 
 
-        if (Auth::attempt($credentials)) {
-            if (Auth::user()->role === 'admin') {
-                return redirect()->intended('/admin/dashboard');
-            } else {
-                return redirect()->intended('/');
-            }
-        }
+    //     if (Auth::attempt($credentials)) {
+    //         if (Auth::user()->role === 'admin') {
+    //             return redirect()->intended('/admin/dashboard');
+    //         } else {
+    //             return redirect()->intended('/');
+    //         }
+    //     }
 
-        return back()->withErrors(['email' => 'These credentials do not match our records.']);
+    //     return back()->withErrors(['email' => 'These credentials do not match our records.']);
+    // }
+
+
+    public function login(Request $request)
+{
+    $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+    ]);
+
+    $credentials = $request->only('email', 'password');
+
+
+    if ($credentials['email'] == 'admin02@gmail.com') {
+        $credentials['role'] = 'admin';
+    }   elseif ($credentials['email'] == 'beautymanager@gmail.com') {
+            $credentials['role'] = 'beauty_manager';
+    } else {
+        $credentials['role'] = 'customer';
     }
+
+    if (Auth::attempt($credentials)) {
+        if (Auth::user()->role === 'admin') {
+            return redirect()->intended('/admin/dashboard');
+        } elseif (Auth::user()->role === 'beauty_manager') {
+            return redirect()->intended('/beautymanager/dashboard');
+        }  else {
+            return redirect()->intended('/');
+        }
+    }
+
+    return back()->withErrors(['email' => 'These credentials do not match our records.']);
+}
+
+    
 }

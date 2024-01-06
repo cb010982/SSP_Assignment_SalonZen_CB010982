@@ -30,33 +30,41 @@ class AdminServiceController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:services,email,' . $service->id,
-           
+            'description' => 'required,' . $service->id,
         ]);
-
         $service->update($validatedData);
-
         return redirect()->route('admin.services.index');
     }
+    
     public function ajaxUpdate(Request $request, Service $service)
     {
         $service->name = $request->name;
-        $service->email = $request->email;
+        $service->description = $request->description;
         $service->save();
     
         return response()->json(['success' => true]);
     }
-    public function createService(Request $request)
+//     public function ajaxCreate(Request $request)
+// {
+//     $service = new Service;
+//     $service->name = $request->input('name');
+//     $service->email = $request->input('description');
+
+//     if ($service->save()) {
+//         return response()->json(['status' => 'success', 'message' => 'service created successfully.']);
+//     } else {
+//         return response()->json(['status' => 'error', 'message' => 'There was a problem creating the service.']);
+//     }
+// }
+
+public function ajaxCreate(Request $request)
 {
     $service = new Service;
-    $service->name = $request->input('name');
-    $service->email = $request->input('description');
+    $service->name = $request->name;
+    $service->description = $request->description;
+    $service->save();
 
-    if ($service->save()) {
-        return response()->json(['status' => 'success', 'message' => 'service created successfully.']);
-    } else {
-        return response()->json(['status' => 'error', 'message' => 'There was a problem creating the service.']);
-    }
+    return response()->json(['success' => true]);
 }
 }
 
