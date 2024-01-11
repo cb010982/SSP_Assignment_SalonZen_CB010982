@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array<int, string>1|laravel_sanctum_S7xWGYOnqzpyrVl0z6HQkYDZ1KsgU5gixP8vtDR250c904d7
      */
     protected $fillable = [
         'name',

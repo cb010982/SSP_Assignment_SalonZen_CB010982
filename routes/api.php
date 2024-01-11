@@ -17,3 +17,25 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::middleware('auth:sanctum')->get('/customers', function (Request $request) {
+    try{
+
+        // (new \App\Models\User())->getName();
+
+        return response()->json([
+            'status' => true,
+            'payload' => [],
+            'timestamp' => now()->timestamp
+        ]);
+        
+    }catch(\Exception $exception){
+   
+        return response()->json([
+            'status' => false,
+            'message' => $exception->getMessage(),
+            'timestamp' => now()->timestamp
+        ]);
+    }
+});

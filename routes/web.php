@@ -182,3 +182,8 @@ Route::get('/profile', function () {
 
 
 
+Route::get('/test', function(){
+    return response()->json([
+        'test' => 'test'
+    ]);
+});
