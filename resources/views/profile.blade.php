@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section style="background-color: #eee;">
+    <section >
         <div class="container py-5">
 
             <h3 class="mb-0">User Profile</h3>
@@ -14,7 +14,7 @@
                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                             <h5 class="my-3">{{ $user->name }}</h5>
                             <h5 class="my-3">{{ $user->address }}</h5>
-                            <button type="button" class="btn btn-secondary btn-lg" id="edit">Edit</button>
+                            <button type="button" class="btn btn-secondary" id="edit">Edit</button>
                         </div>
                     </div>
                 </div>
@@ -141,6 +141,74 @@
             </div>
         </div>
     </section>
+    <style>
+    #editForm, #displayData {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .card-header {
+        background-color: #007bff;
+        color: #fff;
+    }
+    .btn-lg {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    .form-control {
+        border-radius: 5px;
+    }
+    hr {
+        border-top: 1px solid #ddd;
+    }
+    .heading-section {
+        background-color: #007bff;
+        color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .ftco-animate {
+        animation: fadeInUp .5s ease;
+    }
+    .card-body img {
+            display: block;
+            margin: 0 auto; /* Centers the image */
+    }
+    #edit {
+            background-color: #FB74FF; /* Primary color for visibility */
+            color: white; /* Text color */
+            border: none; /* Remove default border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+        }
+
+        /* Hover effect for the button */
+        #edit:hover {
+            background-color: #fff;
+            border-color: #FB74FF;
+            color:#000 /* Slightly darker shade on hover */
+        }
+        
+
+        /* Darken the card header */
+        .card-header {
+            background-color: #fa5bdd; /* Darker blue */
+            color: white; /* White text for contrast */
+        }
+
+    @keyframes fadeInUp {
+        from {
+            transform: translate3d(0, 40px, 0);
+            visibility: visible;
+        }
+        to {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
 
     <script>
         document.getElementById('edit').addEventListener('click', function () {

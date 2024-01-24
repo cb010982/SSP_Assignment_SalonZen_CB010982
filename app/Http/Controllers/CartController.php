@@ -22,37 +22,39 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'product' => 'required|string|max:255',
-            'cardholder_name' => 'required|string|max:255',
-            'cvc' => 'required|string|max:255',
-            'card_number' => 'required|string|max:255',
-            'expiry_date' => 'required|string|max:255',
-            'payment_method' => 'required|string|max:255',
             'price' => 'required|string|max:255',
-            'quantity' => 'required|string|max:255',
-            'cart_data'=>'required'
+            'cart_data' => 'required',
         ]);
-
+    
         $userId = Auth::id();
-
+        $cartData = json_decode($validatedData['cart_data'], true);
+    
+        foreach ($cartData as $item) {
+            // Find the product by name
+            $product = Product::where('name', $item['name'])->first();
+    
+            if ($product) {
+                // Check if there are enough stocks
+                if ($product->stocks >= $item['quantity']) {
+                    // Reduce the stock
+                    $product->stocks -= $item['quantity'];
+                    $product->save();
+                } else {
+                    // Handle insufficient stock (You may want to customize this part)
+                    return back()->with('error', 'Insufficient stock for ' . $product->name);
+                }
+            }
+        }
+    
+        // Create the cart entry
         $cart = new Cart;
         $cart->user_id = $userId;
-        $cart ->name = $validatedData['name'];
-        $cart ->product = $validatedData['product'];
-        $cart ->cvc = $validatedData['cvc'];
-        $cart ->cardholder_name = $validatedData['cardholder_name'];
-        $cart ->card_number = $validatedData['card_number'];
-        $cart ->expiry_date = $validatedData['expiry_date'];
-        $cart ->payment_method = $validatedData['payment_method'];
-        $cart ->price = $validatedData['price'];
-        $cart ->quantity = $validatedData['quantity'];
-        $cart ->cart_data = $validatedData['cart_data'];
-        $cart ->save();
-
+        $cart->price = $validatedData['price'];
+        $cart->cart_data = $validatedData['cart_data'];
+        $cart->save();
+    
         return back()->with('success', 'Cart created successfully');
     }
-    
     public function showForm()
     {
         return view('carts');

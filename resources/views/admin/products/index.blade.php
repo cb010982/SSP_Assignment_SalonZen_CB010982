@@ -17,7 +17,8 @@
                     <input type="text" name="name" placeholder="Name">
                     <input type="text" name="description" placeholder="Description">
                     <span>$</span><input type="number" name="price" placeholder="Price">
-                    <button type="submit">Save</button>
+                    <input type="number" name="stocks" placeholder="Stocks">
+                    <button class="btn btn-success" type="submit">Save</button>
                 </form>
             </div>
                   
@@ -28,6 +29,7 @@
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
+                            <th>Stocks</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +40,7 @@
                             <td class="name">{{ $product->name }}</td>
                             <td class="description">{{ $product->description }}</td>
                             <td class="price">{{ $product->price }}</td>
+                            <td class="stocks">{{ $product->stocks}}</td>
                             <td >
                                 <button id="badge-outline-warning" class="edit-button">Edit</button>
                                 <button id="badge-outline-success" class="save-button" style="display: none;">Save</button>
@@ -69,7 +72,7 @@ document.getElementById('create-product-button').addEventListener('click', () =>
 document.querySelectorAll('.edit-button').forEach((button) => {
     button.addEventListener('click', (event) => {
         const row = event.target.parentNode.parentNode;
-        const fields = ['name', 'description', 'price'];
+        const fields = ['name', 'description', 'price','stocks'];
         fields.forEach(field => {
             const value = row.querySelector('.' + field).innerText;
             row.querySelector('.' + field).innerHTML = `<input type="text" value="${value}">`;
@@ -117,7 +120,7 @@ document.querySelector('table').addEventListener('click', (event) => {
         const productId = row.querySelector('.id') ? row.querySelector('.id').innerText : null;  
 
         const data = { id: productId };
-        const fields = ['name', 'description', 'price'];
+        const fields = ['name', 'description', 'price','stocks'];
         fields.forEach(field => {
             data[field] = row.querySelector('.' + field + ' input').value;
         });

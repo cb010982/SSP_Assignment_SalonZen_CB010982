@@ -103,17 +103,11 @@ class BeautyManagerAppointmentController extends Controller
     public function acceptCartItem($id)
     {
         $cartItem = Cart::find($id);
-        $cartItem->status = 'ACCEPTED';
+        $cartItem->status = 'DISPATCHED';
         $cartItem->save();
-        return redirect()->back()->with('success', 'Cart item accepted successfully.');
+        return redirect()->back()->with('success', 'Cart item dispatched successfully.');
     }
     
-    public function declineCartItem($id)
-    {
-        $cartItem = Cart::find($id);
-        $cartItem->status = 'DECLINED';
-        $cartItem->save();
-        return redirect()->back()->with('error', 'Cart item declined successfully.');
-    }
+
     
 }

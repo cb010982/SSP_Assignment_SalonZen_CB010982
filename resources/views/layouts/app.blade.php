@@ -36,7 +36,7 @@
 
   <!-- <link rel="icon" href="{{ asset ('img/Fevicon.png')}}" type="image/png"> -->
 
-  
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   @stack('styles')
   
@@ -63,9 +63,13 @@
                             <li class="nav-item"><a href="/products" class="nav-link">Products</a></li>
                             <li class="nav-item"><a href="/team" class="nav-link">Team</a></li>
                             <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
-                            <li class="nav-item"><a href="/appointments" class="nav-link">Appointments</a></li>
+                            <li class="nav-item">
+                                <a href="/appointments" class="nav-link" x-data="{ clickCount: localStorage.getItem('appointmentsClickCount') || 0 }" @click="localStorage.setItem('appointmentsClickCount', ++clickCount)">Appointments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/cart" class="nav-link" x-data="{ clickCount: localStorage.getItem('cartClickCount') || 0 }" @click="localStorage.setItem('cartClickCount', ++clickCount)">Cart</a>
+                            </li>
                             <li class="nav-item"><a href="/appointmenthistory" class="nav-link">Appointment History</a></li>
-                            <li class="nav-item"><a href="/cart" class="nav-link">Cart</a></li>
                             <li class="nav-item"><a href="/carthistory" class="nav-link">Cart History</a></li>
                             <li class="nav-item"><a href="/chat" class="nav-link">Chat</a></li>
                             <li class="nav-item"><a href="/profileinfo" class="nav-link">Profile</a></li>
@@ -138,6 +142,12 @@
         </main>
 
         <footer class="ftco-footer ftco-section img">
+        <div x-data="{ clickCount: localStorage.getItem('appointmentsClickCount') || 0 }">
+            <p>Appointments link clicked: <span x-text="clickCount"></span> times.</p>
+        </div>
+        <div x-data="{ clickCount: localStorage.getItem('cartClickCount') || 0 }">
+            <p>Cart link clicked: <span x-text="clickCount"></span> times.</p>
+        </div>
             <div class="overlay"></div>
             <div class="container">
                 <div class="row mb-5">
@@ -235,8 +245,6 @@
                 <circle class="path" cx="24" cy="24" r="22" fill="none"
                     stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
             </svg></div>
-
-
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/jquery-migrate-3.0.1.min.js') }}"></script>
         <script src="{{ asset('js/popper.min.js') }}"></script>

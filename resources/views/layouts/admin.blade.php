@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{{asset('dasboard/assets/css/style.css')}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('dasboard/assets/images/favicon.png')}}" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
 
   <body>
@@ -54,6 +55,14 @@
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('admin.user.management') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">Token</span>
             </a>
           </li>
           <li class="nav-item menu-items">

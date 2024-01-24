@@ -11,6 +11,7 @@
         </div>
         <div class="row d-flex">
             @foreach($products as $product)
+            @if($product->stocks > 0)
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
                     <a href="blog-single.html" class="block-20" style="background-image: url('{{ asset($product->image) }}');"></a>
@@ -19,9 +20,11 @@
                     <h3>{{ $product->name }} <span><button class="btn btn-primary" id="addtocart">Add to Cart</button></span></h3>
                         <h4>Rs {{ $product->price }}</h4>
                         <p>{{ $product->description }}</p>
+                        <p>Stocks available: {{ $product->stocks }}</p>
                     </div>
                 </div>
             </div>
+               @endif
             @endforeach
         </div>
     </div>
@@ -62,78 +65,54 @@
                 </div>
             </div>
             <div class="col-md-6 appointment pl-md-5 ftco-animate">
-                <form action="{{ route('carts.store') }}" method="POST" class="appointment-form">
+                
+                   <div class="appointment-form">
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                        <select class="form-control" id="payment_method" name="payment_method" >
+                                <option value="" disabled selected>Payment Method</option>
+                                <option value="Master Card">Master Card</option>
+                                <option value="Visa">Visa</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="cardholder_name" placeholder="Cardholder Name">
+                        </div>
+                    </div>
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="card_number" placeholder="Card Number">
+                        </div>
+                    </div>
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="cvc" placeholder="Security Code">
+                        </div>
+                    </div>
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="expiry_month" placeholder="Expiry Month">
+                        </div>
+                    </div>
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="expiry_date" placeholder="Expiry Year">
+                        </div>
+                    </div>
+                    </div>
+                    <form action="{{ route('carts.store') }}" method="POST" class="appointment-form">
                     @csrf
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="name" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="cvc" placeholder="cvc">
-                        </div>
-                    </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="cardholder_name" placeholder="cardholdername">
-                        </div>
-                    </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="expiry_date" placeholder="exirydate">
-                        </div>
-                    </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="payment_method" placeholder="payment">
-                        </div>
-                    </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="card_number" placeholder="cardno">
-                        </div>
-                    </div>
-                    <!-- Add this input field in your HTML form -->
                     <input type="hidden" name="cart_data" value="">
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <!-- Add this input field in your HTML -->
-                        <input type="text" id="grand-total" name="price" value="0.00" readonly />
-
-
-                     
+                        <strong><input class="color" type="text" id="grand-total" name="price" value="0.00" readonly /></strong>
                         </div>
                     </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="quantity" placeholder="quantity">
-                        </div>
-                    </div>
-                    <div class="row form-group d-flex">
-                        <div class="col-md-6">
-                            <style>
-                                select:hover option{
-                                    background-color: white;
-                                    color:black;
-                                }
-                                </style>
-                            <select class="form-control" id="services" name="product" >
-                                <option value="" disabled selected>Services</option>
-                                <option value="Eyebrow Waxing">Eyebrow Waxing</option>
-                                <option value="Upper Lip Waxing">Upper Lip Waxing</option>
-                                <option value="Chin Waxing">Chin Waxing</option>
-                                <option value="Full Face Waxing">Full Face Waxing</option>
-                                <option value="Underarm Waxing">Underarm Waxing</option>
-                                <option value="Basic Pedicure">Basic Pedicure</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-    
                     <div class="row form-group d-flex">
                         <div class="form-group">
-                            <input type="submit" value="Confirm Payment" class="btn btn-white btn-outline-white py-3 px-4">
+                            <input type="submit" value="Confirm Payment" id="myButton"class="btn btn-white btn-outline-white py-3 px-4">
                         </div>
                     </div>
                 </form>
@@ -141,7 +120,7 @@
         </div>
     </div>
 </section>
-<!-- Add this script at the end of your HTML file, before the closing </body> tag -->
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var addToCartButtons = document.querySelectorAll('[id^="addtocart"]');
@@ -246,7 +225,16 @@
             document.querySelector('input[name="cart_data"]').value = JSON.stringify(cartData);
         }
     });
+    document.getElementById('myButton').addEventListener('click', function() {
+    alert('Cart sent!');
+    connectify('success', 'Connection Found', 'Success Message Here')
+});
 </script>
-
+<style>
+    .color{
+        background-color: #ff59e9;
+        color:white;
+    }
+</style>
 
 @endsection

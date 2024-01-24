@@ -18,7 +18,7 @@
                     <input type="text" name="timeslot" placeholder="Timeslot">
                     <input type="text" name="date" placeholder="Date">
                     <input type="number" name="phone" placeholder="Phone">
-                    <button type="submit">Save</button>
+                    <button class="btn btn-success" type="submit">Save</button>
                 </form>
             </div>
 

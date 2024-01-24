@@ -12,12 +12,12 @@
             @foreach($products as $product)
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry align-self-stretch">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('{{ asset($product->image) }}');"></a>
-                   
+                    <a href="/cart" class="block-20" style="background-image: url('{{ asset($product->image) }}');"></a>
                     <div class="text py-4 d-block">
-                        <h3 class="heading mt-2">{{ $product->name }} <span> &nbsp; <i class="cart-icon fas fa-shopping-cart"></i></h3>
+                        <h3 class="heading mt-2">{{ $product->name }} <span> &nbsp; </h3>
                         <h4>Rs {{ $product->price }}</h4>
                         <p>{{ $product->description }}</p>
+                        <strong><p>Stocks available : {{ $product->stocks }}</p></strong>
                     </div>
                 </div>
             </div>

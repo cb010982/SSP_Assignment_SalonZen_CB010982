@@ -52,23 +52,14 @@
                         <!-- Add Confirm and Decline buttons -->
                         <div class="text-right">
                        <!-- Add Confirm and Decline buttons -->
-                        <div id="buttons{{ $item->id }}" class="text-right">
-                        <!-- Add Confirm and Decline buttons -->
+                       <div id="buttons{{ $item->id }}" class="text-right">
                         @if($item->status == 'PENDING')
-    <!-- Add Confirm and Decline buttons -->
-    <div id="buttons{{ $item->id }}" class="text-right">
-        <a href="/cart/{{ $item->id }}/accept" class="btn btn-outline-success" onclick="confirmOrder({{ $item->id }}); return false;">Confirm Order</a>
-        <a href="/cart/{{ $item->id }}/decline" class="btn btn-outline-danger" onclick="declineOrder({{ $item->id }}); return false;">Decline Order</a>
-    </div>
-@endif
-
-                        </div>
+                            <a href="/cart/{{ $item->id }}/accept" class="btn btn-outline-success" onclick="dispatchOrder({{ $item->id }}); return false;">Order Dispatched</a>
+                        @endif
+                    </div>
                         <!-- Add Confirm and Decline messages -->
                         <div id="confirmMessage{{ $item->id }}" style="display: none;" class="text-right">
-                            <p class="text-success"><strong> ORDER CONFIRMED</strong></p>
-                        </div>
-                        <div id="declineMessage{{ $item->id }}" style="display: none;" class="text-right">
-                            <p class="text-danger"><strong>ORDER DECLINED</strong></p>
+                            <p class="text-success"><strong> ORDER DISPATCHED</strong></p>
                         </div>
                         <p>Customer order {{ $item->status }} </p>
                         </div>
@@ -88,19 +79,6 @@ function confirmOrder(orderId) {
             document.getElementById('buttons' + orderId).style.display = 'none';
            
             document.getElementById('confirmMessage' + orderId).style.display = 'block';
-        }
-    });
-}
-
-function declineOrder(orderId) {
-    $.ajax({
-        url: '/cart/' + orderId + '/decline',
-        type: 'GET',
-        success: function(response) {
-            // Hide the buttons
-            document.getElementById('buttons' + orderId).style.display = 'none';
-            // Show the declined message
-            document.getElementById('declineMessage' + orderId).style.display = 'block';
         }
     });
 }

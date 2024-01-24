@@ -40,6 +40,7 @@ class AdminProductController extends Controller
             'name' => 'required|max:255',
             'description' => 'required,' . $product->id,
             'price' => 'required' .$product->id,
+            'stocks' => 'required' .$product->id,
            
         ]);
 
@@ -52,6 +53,7 @@ class AdminProductController extends Controller
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
+        $product->stocks = $request->stocks;
         $product->save();
     
         return response()->json(['success' => true]);
@@ -76,6 +78,7 @@ public function ajaxCreate(Request $request)
     $product->name = $request->name;
     $product->description = $request->description;
     $product->price = $request->price;
+    $product->stocks = $request->stocks;
     $product->save();
     
     return response()->json(['success' => true]);

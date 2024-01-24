@@ -16,7 +16,7 @@
                     @csrf
                     <input type="text" name="name" placeholder="Name">
                     <input type="text" name="description" placeholder="Description">
-                    <button type="submit">Save</button>
+                    <button class="btn btn-success" type="submit">Save</button>
                 </form>
             </div>
     

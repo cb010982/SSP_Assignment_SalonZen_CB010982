@@ -2,18 +2,25 @@
 
 @section('content')
 <div class="container">
-        <div class="main-panel">
-
-            <div class="row">
-              <div class="col-md-4 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Carts and Apointments</h4>
-                    <div style="width: 350px; height: 300px;">
-                        <canvas id="salesChart"></canvas>
-                    </div>
-                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                      <div class="text-md-center text-xl-left">
+        <div class="main-panel">             
+        <div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+     
+          <div style="height: 300px;">
+            <canvas id="salesChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Carts and Appointments</h4>
+          <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">
+            <div class="text-md-center text-xl-left">
                         <h6 class="mb-1">Future appointments</h6>
                       </div>
                       <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
@@ -43,49 +50,106 @@
                       <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
                         <h6 class="font-weight-bold mb-0">{{$totalCartcount}}</h6>
                       </div>
-                    </div>
-                  </div>
                 </div>
               </div>
-       
-              <div class="card-body"></div>
-                    
-                   
-              <div class="card-body">
-                   
-                      <div class="col-sm-4 grid-margin">
-                      <h4 class="card-title">Appointments</h4>
-                      <div style="width: 500px; height: 300px;">
-                          <canvas id="appointmentStatusChart"></canvas>
-                      </div>
-                      
-                      </div>
-                      <div class="col-sm-4 grid-margin">
-                      <h4 class="card-title">Carts</h4>
-                      <div style="width: 500px; height: 300px;">
-                          <canvas id="cartStatusChart"></canvas>
-                      </div>
-                      </div>
-                     
-              </div>
-            
-            
-              
             </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-         
-          <!-- partial -->
+          </div>
         </div>
-        <!-- main-panel ends -->
       </div>
-      <!-- page-body-wrapper ends -->
+
+<div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Carts and Appointments</h4>
+          <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">
+            
+    
+            
+            <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Appointments accepted</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $acceptedAppointmentCount }}</h6>
+                      </div>
+                    </div>
+                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                      <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Appointments accepted</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $declinedAppointmentCount }}</h6>
+                      </div>
+                    </div>
+                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                      <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Appointments pending</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $pendingAppointmentCount }}</h6>
+                      </div>
+                    </div>
+        </div>
+      </div>
     </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-   
-    <!-- End custom js for this page -->
-      
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div style="height: 300px;">
+            <canvas id="appointmentStatusChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div style="height: 300px;">
+            <canvas id="cartStatusChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Carts and Appointments</h4>
+          <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">
+            <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Future appointments</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $acceptedCartCount }}</h6>
+                      </div>
+                    </div>
+                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                      <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Total customers</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $declinedCartCount }}</h6>
+                      </div>
+                    </div>
+                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                      <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Total appointments</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $pendingCartCount }}</h6>
+                      </div>
+                    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+            </div>
+        </div>
+      </div>
+    </div>
        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
        <script>
 
