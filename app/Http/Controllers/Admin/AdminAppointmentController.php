@@ -41,7 +41,7 @@ class AdminAppointmentController extends Controller
 
         return redirect()->route('admin.appointments.index');
     }
-        public function store(Request $request) //this should be in the appointmentcontroller, did not work, says store route not found and tries to come to the adminappointmentcontroller.
+        public function store(Request $request) 
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',

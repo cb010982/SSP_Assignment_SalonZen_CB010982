@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->string('status')->default('PENDING'); 
-        });
+        Schema::dropIfExists('link_clicks');
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->dropColumn('status');
-        });
+        //
     }
 };

@@ -44,18 +44,6 @@ class AdminServiceController extends Controller
     
         return response()->json(['success' => true]);
     }
-//     public function ajaxCreate(Request $request)
-// {
-//     $service = new Service;
-//     $service->name = $request->input('name');
-//     $service->email = $request->input('description');
-
-//     if ($service->save()) {
-//         return response()->json(['status' => 'success', 'message' => 'service created successfully.']);
-//     } else {
-//         return response()->json(['status' => 'error', 'message' => 'There was a problem creating the service.']);
-//     }
-// }
 
 public function ajaxCreate(Request $request)
 {

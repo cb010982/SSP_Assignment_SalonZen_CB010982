@@ -404,10 +404,19 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-5">
+            <div class="col-md-6 mx-auto text-center">
+            <h2 class="mb-4" style="font-size: 24px;">Did you enjoy your experience?</h2>
+            <div x-data="clickStore">
+                <button @click="clickCount++; updateClickCount()" class="btn btn-primary" style="font-size: 18px;">Yes!</button>
+                <p class="mt-3" style="font-size: 16px; visibility: hidden;">
+                    Clicked: <span x-text="clickCount"></span> times.
+                </p>
+            </div>
+        </div>
+        </div>
         </div>
     </section>
-
-
     <section class="ftco-section ftco-appointment" id="appointments" >
         <div class="overlay"></div>
         <div class="container">
@@ -440,11 +449,31 @@
                             Join us at Salon Zen and discover a world of beauty and relaxation that's all about you. We can't wait to welcome you into our family!</p></br>
                         </div>
                         <p><a href="/appointments" class="btn btn-white btn-outline-white px-4 py-3">Book An Appointment</a></p>
-
                 </div>
                 
-        
             </div>
         </div>
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script>
+    
+    function clickStore() {
+        return {
+            clickCount: 0,
+            updateClickCount: function () {
+                console.log('Button clicked');
+                this.clickCount++; 
+                axios.post('/update-click-count', { count: this.clickCount })
+                    .then(response => console.log('Response:', response.data))
+                    .catch(error => console.error('Error updating click count:', error));
+                    alert("Thank you!");
+            }
+        };
+    }
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('clickStore', clickStore);
+    });
+</script>
+
 @endsection

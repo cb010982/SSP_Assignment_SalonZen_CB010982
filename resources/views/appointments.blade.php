@@ -31,7 +31,7 @@
                     @csrf
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="name" placeholder="Name">
+                            <input type="text" class="form-control" name="name" placeholder="Name" required>
                         </div>
                     </div>
                     <div class="row form-group d-flex">
@@ -42,7 +42,7 @@
                                     color:black;
                                 }
                                 </style>
-                            <select class="form-control" id="services" name="service" >
+                            <select class="form-control" id="services" name="service" required>
                                 <option value="" disabled selected>Services</option>
                                 <option value="Eyebrow Waxing">Eyebrow Waxing</option>
                                 <option value="Upper Lip Waxing">Upper Lip Waxing</option>
@@ -112,7 +112,7 @@
                                     color:black;
                                 }
                                 </style>
-                            <select class="form-control" id="timeslot" name="timeslot">
+                            <select class="form-control" id="timeslot" name="timeslot" required >
                                 <option value="" disabled selected>Time</option>
                                 <option value="8am-10am">8am-10am</option>
                                 <option value="10am-12pm">10am-12pm</option>
@@ -125,10 +125,10 @@
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="date" name="date" placeholder="Date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            <input type="text" class="form-control" id="date" name="date" placeholder="Date" onfocus="(this.type='date')" onblur="(this.type='text')" required>
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="phone" placeholder="Phone" pattern="\d{10}" title="Please enter exactly 10 digits">
+                            <input type="text" class="form-control" name="phone" placeholder="Phone" pattern="\d{10}" title="Please enter exactly 10 digits" required>
                         </div>
                     </div>
                     <div class="row form-group d-flex">
@@ -146,5 +146,10 @@ document.getElementById('myButton').addEventListener('click', function() {
     alert('Appoinment sent!');
     connectify('success', 'Connection Found', 'Success Message Here')
 });
+</script>
+<script>
+
+  var today = new Date().toISOString().split('T')[0];
+  document.getElementById("date").setAttribute("min", today);
 </script>
 @endsection

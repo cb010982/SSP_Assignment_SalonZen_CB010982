@@ -33,15 +33,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     @notifyCss
-
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <!-- <link rel="icon" href="{{ asset ('img/Fevicon.png')}}" type="image/png"> -->
 
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+ 
 
   @stack('styles')
   
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 
 <body>
@@ -63,12 +65,8 @@
                             <li class="nav-item"><a href="/products" class="nav-link">Products</a></li>
                             <li class="nav-item"><a href="/team" class="nav-link">Team</a></li>
                             <li class="nav-item"><a href="/pricing" class="nav-link">Pricing</a></li>
-                            <li class="nav-item">
-                                <a href="/appointments" class="nav-link" x-data="{ clickCount: localStorage.getItem('appointmentsClickCount') || 0 }" @click="localStorage.setItem('appointmentsClickCount', ++clickCount)">Appointments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/cart" class="nav-link" x-data="{ clickCount: localStorage.getItem('cartClickCount') || 0 }" @click="localStorage.setItem('cartClickCount', ++clickCount)">Cart</a>
-                            </li>
+                            <li class="nav-item"><a href="/appointments" class="nav-link" >Appointments</a></li>
+                            <li class="nav-item"><a href="/cart" class="nav-link" >Cart</a></li>
                             <li class="nav-item"><a href="/appointmenthistory" class="nav-link">Appointment History</a></li>
                             <li class="nav-item"><a href="/carthistory" class="nav-link">Cart History</a></li>
                             <li class="nav-item"><a href="/chat" class="nav-link">Chat</a></li>
@@ -142,12 +140,7 @@
         </main>
 
         <footer class="ftco-footer ftco-section img">
-        <div x-data="{ clickCount: localStorage.getItem('appointmentsClickCount') || 0 }">
-            <p>Appointments link clicked: <span x-text="clickCount"></span> times.</p>
-        </div>
-        <div x-data="{ clickCount: localStorage.getItem('cartClickCount') || 0 }">
-            <p>Cart link clicked: <span x-text="clickCount"></span> times.</p>
-        </div>
+
             <div class="overlay"></div>
             <div class="container">
                 <div class="row mb-5">
@@ -263,6 +256,7 @@
         <script src="{{ asset('js/google-map.js') }}"></script>
         <script src="{{ asset('js/main.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
        @stack('scripts')
        
     </div>

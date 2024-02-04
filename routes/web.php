@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\BeautyManager\BeautyManagerAppointmentController;
 use App\Http\Controllers\Admin\AdminAppointmentController;
+use App\Http\Controllers\Admin\AdminStylistsController;
 use App\Http\Controllers\Admin\AdminServiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServicesController;
@@ -30,28 +31,26 @@ use app\Models\User;
 
 Auth::routes();
 
-//public routes
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::view('/services', 'services');
-// Route::view('/appointments','appointments');
+Route::view('/appointments','appointments');
 Route::view('/products','products');
 Route::view('/team','team');
 Route::view('/pricing','prices');
-// Route::view('/cart','cart');
-Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
+
+
 Route::get('/chat', [OpenAIController::class, 'index']);
 Route::post('/chat', [OpenAIController::class, 'getResponse']);
 
 Route::get('/cart/{id}',[ProductController::class,'show']);
 
 Route::middleware('auth')->group(function () {
-    Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
     Route::get('/carthistory', [CartController::class, 'showCart'])->name('carthistory.show');
     Route::get('/appointmenthistory', [AppointmentController::class, 'showAppointmentHistory'])->name('appointmenthistory.showAppointmentHistory');
     Route::get('/profileinfo', [UserProfileController::class, 'show'])->name('profileinfo.show');
     Route::get('/cart',  [CartController::class, 'showproduct']);
-    Route::get('/appointments', [AppointmentController::class, 'showForm'])->name('appointments.create');
-    Route::get('/appointments', [AppointmentController::class, 'index']);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
@@ -67,18 +66,17 @@ Route::get('/cart/{id}/accept', [BeautyManagerAppointmentController::class,'acce
 
 Route::post('/appointments/{id}/accept', [BeautyManagerAppointmentController::class, 'accept'])->name('appointments.accept');
 Route::post('/appointments/{id}/decline', [BeautyManagerAppointmentController::class, 'decline'])->name('appointments.decline');
-// Route::get('/appointmenthistory', [AppointmentController::class, 'showAppointmentHistory'])->name('appointmenthistory.showAppointmentHistory');
 
 Route::post('/carts', [CartController::class, 'store'])->name('carts.store');
-// Route::get('/profileinfo', [UserProfileController::class, 'show'])->name('profileinfo.show');
-// 
+
+Route::get('/appointments', [AppointmentController::class, 'showForm'])->name('appointments.create');
+
+Route::post('/update-click-count', [AnalyticsController::class, 'updateClickCount']);
+
+Route::get('/admin/dashboard', [AnalyticsController::class, 'showDashboard']);
 
 
 
-
-// Route::get('/admin/dashboard', function () {
-//     return view('admin.dashboard');
-// })->middleware('admin')->name('admin.dashboard');
 
 Route::get('/admin/token', function () {
     return view('admin.token');
@@ -105,7 +103,7 @@ Route::get('/admin/appointments', function () {
 
 Route::get('/carts', [CartController::class, 'showForm'])->name('carts.create');
 
-// Route::get('/carthistory', [CartController::class, 'showCart'])->name('carthistory.show');
+
 Route::get('/beautymanager.cart.index', [BeautyManagerAppointmentController::class, 'showCartDetails'])->name('beautymanager.cart.index.showCartDetails');
 
 Route::get('/admin/services', function () {
@@ -114,17 +112,9 @@ Route::get('/admin/services', function () {
 
 Route::get('/products', [ProductController::class, 'index']);
 Route::get('/services', [ServicesController::class, 'index']);
-// 
+Route::get('/appointments', [AppointmentController::class, 'index']);
 Route::get('/carts', [CartController::class, 'index']);
-
-// Route::resource('admin/users', 'App\Http\Controllers\Admin\UserController')->names([
-//     'index' => 'admin.users.index',
-// ]);
-
-
-// Route::resource('admin/appointments', 'App\Http\Controllers\Admin\AdminAppointmentController')->names([
-//     'index' => 'admin.appointments.index',
-// ]);
+Route::get('/team', [AdminStylistsController::class, 'index']);
 
 
 
@@ -132,8 +122,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/products', [AdminProductController::class,'index'])->name('admin.products.index');
     Route::get('/products/create', [AdminProductController::class,'create'])->name('admin.products.create');
     Route::get('/products/edit', [AdminProductController::class,'edit'])->name('admin.products.edit');
-    // Route::get('/login', 'Auth\AdminLoginController@showAdminLoginForm')->name('admin.login');
-    // Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/services', [AdminServiceController::class,'index'])->name('admin.services.index');
     Route::get('/services/create', [AdminServiceController::class,'create'])->name('admin.services.create');
     Route::get('/services/edit', [AdminServiceController::class,'edit'])->name('admin.services.edit');
@@ -142,30 +130,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/dashboard',[BeautyManagerAppointmentController::class, 'showAnalyticsDetails'])->name('admin.dashboard');
 });
 
-
-// Route::resource('beautymanager/appointments', 'App\Http\Controllers\BeautyManager\BeautyManagerAppointmentController')->names([
-//     'index' => 'beautymanager.appointments.index',
-// ]);
-// Route::get('/beautymanager/cart/index', [BeautyManagerAppointmentController::class, 'showCartDetails'])
-//     ->name('beautymanager.cart.index');
-
-Route::middleware('beauty_manager')->group(function () {
-    Route::resource('beautymanager/appointments', 'App\Http\Controllers\BeautyManager\BeautyManagerAppointmentController')->names([
-        'index' => 'beautymanager.appointments.index',
-    ]);
-    Route::get('/beautymanager/cart/index', [BeautyManagerAppointmentController::class, 'showCartDetails'])
-        ->name('beautymanager.cart.index');
+Route::middleware('beauty_manager')->group(function(){
+Route::resource('beautymanager/appointments', 'App\Http\Controllers\BeautyManager\BeautyManagerAppointmentController')->names([
+    'index' => 'beautymanager.appointments.index',
+]);
+Route::get('/beautymanager/cart/index', [BeautyManagerAppointmentController::class, 'showCartDetails'])
+    ->name('beautymanager.cart.index');
 });
 
+//set after beauty manager beacuse of middleware intereference
+Route::post('/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
 
-// Route::get('/admin/dashboard', [BeautyManagerAppointmentController::class, 'showAnalyticsDetails'])
-//     ->name('admin.dashboard');
 
-
+Route::get('/appointments', [AppointmentController::class, 'index'])->name('appointments.index');
 Route::get('/carts', [CartController::class, 'index'])->name('carts.index');
-
-// Route::get('/customer/login', 'Auth\LoginController@showCustomerLoginForm')->name('customer.login');
-// Route::post('/customer/login', 'Auth\LoginController@login')->name('customer.login.submit');
 
 
 
@@ -184,14 +162,6 @@ Route::delete('/admin/products/{product}', [App\Http\Controllers\Admin\AdminProd
 Route::delete('/admin/services/{service}', [App\Http\Controllers\Admin\AdminServiceController::class, 'destroy'])->name('admin.services.destroy');
 Route::delete('/admin/appointments/{appointment}', [App\Http\Controllers\Admin\AdminAppointmentController::class, 'destroy'])->name('admin.appointments.destroy');
 
-// Route::post('/admin/ajax-update-user/{id}', 'Admin\UserController@ajaxUpdate');
-// Route::post('/admin/ajax-update-product/{id}', 'Admin\AdminProductController@ajaxUpdate');
-// Route::post('/admin/ajax-update-service/{id}', 'Admin\AdminServiceController@ajaxUpdate');
-// Route::post('/admin/ajax-update-appointment/{id}', 'Admin\AdminAppointmentController@ajaxUpdate');
-// Route::put('/admin/ajax-create-user', 'App\Http\Controllers\Admin\UserController@ajaxCreate');
-// Route::put('/admin/ajax-create-product', 'App\Http\Controllers\Admin\AdminProductController@ajaxCreate');
-// Route::put('/admin/ajax-create-service', 'App\Http\Controllers\Admin\AdminServiceController@ajaxCreate');
-// Route::put('/admin/ajax-create-appointment', 'App\Http\Controllers\Admin\AdminAppointmentController@ajaxCreate');
 
 
 Route::middleware(['web'])->group(function () {
@@ -239,3 +209,5 @@ Route::get('/test', function(){
         'test' => 'test'
     ]);
 });
+
+

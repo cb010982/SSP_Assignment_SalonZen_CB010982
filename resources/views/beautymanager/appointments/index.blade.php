@@ -73,20 +73,20 @@
         });
 
         function updateStatus(button, status) {
-            var form = button.closest('form');  // Find the closest form element
+            var form = button.closest('form');  
             var row = button.parentElement.parentElement;
             var statusCell = row.querySelector('.status');
             
-            // Update the status cell
+           
             statusCell.classList.remove('text-warning');
             statusCell.classList.add(status === 'accepted' ? 'text-success' : 'text-danger');
             statusCell.textContent = status.toUpperCase();
             
-            // Disable the buttons
+            
             button.style.display = 'none';
             row.querySelector('.decline-button').style.display = 'none';
 
-            // Submit the form
+          
             form.submit();
         }
     };

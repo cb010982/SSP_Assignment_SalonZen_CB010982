@@ -15,7 +15,7 @@ class UserProfileController extends Controller
 
     public function update(Request $request, User $user)
     {
-        // Validate the incoming request data
+       
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'date_of_birth' => 'required|date',
@@ -24,10 +24,10 @@ class UserProfileController extends Controller
             'skin_type' => 'required|string|max:255',
         ]);
 
-        // Update the user attributes
+       
         $user->update($validatedData);
 
-        // Redirect back to the user profile with a success message
+        
         return back()->with('success', 'Profile created successfully');
     }
 }

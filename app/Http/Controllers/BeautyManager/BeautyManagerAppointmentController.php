@@ -9,6 +9,7 @@ use App\Models\Cart;
 use App\Models\User;
 use App\Models\Service;
 use App\Models\Product;
+use App\Models\ClickCount;
 use Carbon\Carbon;
 
 class BeautyManagerAppointmentController extends Controller
@@ -63,6 +64,7 @@ class BeautyManagerAppointmentController extends Controller
 
     public function showAnalyticsDetails()
     {
+        $count = ClickCount::pluck('count')->first();
         $cartItems = Cart::all(); 
         $appointments = Appointment::all(); 
         $users = User::all(); 
@@ -91,13 +93,12 @@ class BeautyManagerAppointmentController extends Controller
         $declinedAppointmentCount = Appointment::where('status', 'DECLINED')->count();
         $pendingAppointmentCount = Appointment::where('status', 'pending')->count();
        
-        $acceptedCartCount = Cart::where('status', 'ACCEPTED')->count();
-        $declinedCartCount = Cart::where('status', 'DECLINED')->count();
+        $acceptedCartCount = Cart::where('status', 'DISPATCHED')->count();
         $pendingCartCount = Cart::where('status', 'PENDING')->count();
     
         return view('admin.dashboard', compact('cartItems', 'totalSales', 'futureAppointmentsCount', 'totalAppointmentsCount',
-         'totalcustomers', 'totalCartcount', 'acceptedCartCount', 'declinedCartCount','pendingCartCount','acceptedAppointmentCount',
-          'declinedAppointmentCount','pendingAppointmentCount','productsCount', 'servicesCount','completedAppointmentsCount'));
+         'totalcustomers', 'totalCartcount', 'acceptedCartCount','pendingCartCount','acceptedAppointmentCount',
+          'declinedAppointmentCount','pendingAppointmentCount','productsCount', 'servicesCount','completedAppointmentsCount','count'));
     }
     
     public function acceptCartItem($id)

@@ -10,23 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::dropIfExists('cart_details');
-}
-
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
     {
-        Schema::create('cart_details', function (Blueprint $table) {
-            
+        Schema::create('user_counts', function (Blueprint $table) {
             $table->id();
-            $table->string('column1');
-           
+            $table->integer('appointments_count')->default(0);
+            $table->integer('cart_count')->default(0);
             $table->timestamps();
         });
     }
-    
+
+    public function down()
+    {
+        Schema::dropIfExists('user_counts');
+    }
 };

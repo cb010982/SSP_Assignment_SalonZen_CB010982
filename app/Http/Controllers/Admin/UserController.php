@@ -51,25 +51,7 @@ class UserController extends Controller
     
         return response()->json(['success' => true]);
     }
-//     public function ajaxCreate(Request $request)
-// {
-    
-//     $user = new User;
-//     $user->name = $request->input('name');
-//     $user->email = $request->input('email');
-//     $user->telephone = $request->input('telephone');
-//     $user->address = $request->input('address');
-//     $user->date_of_birth = $request->input('date_of_birth');
-//     $user->skin_type = $request->input('skin_type');
-//     $user->allergies = $request->input('allergies');
-//     $user->password = Hash::make($request->input('password'));  
 
-//     if ($user->save()) {
-//         return response()->json(['status' => 'success', 'message' => 'User created successfully.']);
-//     } else {
-//         return response()->json(['status' => 'error', 'message' => 'There was a problem creating the user.']);
-//     }
-// }
 
 public function ajaxCreate(Request $request)
 {

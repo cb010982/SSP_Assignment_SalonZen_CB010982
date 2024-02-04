@@ -30,23 +30,23 @@ class CartController extends Controller
         $cartData = json_decode($validatedData['cart_data'], true);
     
         foreach ($cartData as $item) {
-            // Find the product by name
+            
             $product = Product::where('name', $item['name'])->first();
     
             if ($product) {
-                // Check if there are enough stocks
+                
                 if ($product->stocks >= $item['quantity']) {
-                    // Reduce the stock
+                   
                     $product->stocks -= $item['quantity'];
                     $product->save();
                 } else {
-                    // Handle insufficient stock (You may want to customize this part)
+                  
                     return back()->with('error', 'Insufficient stock for ' . $product->name);
                 }
             }
         }
     
-        // Create the cart entry
+      
         $cart = new Cart;
         $cart->user_id = $userId;
         $cart->price = $validatedData['price'];
@@ -69,13 +69,13 @@ class CartController extends Controller
 
 public function showCart()
     {
-        // Get the current user's ID
+        
         $userId = Auth::id();
 
-        // Fetch the cart items based on the user ID
+       
         $cartItems = Cart::where('user_id', $userId)->get();
 
-        // Pass the cart items to the view
+       
         return view('carthistory', compact('cartItems'));
     }
 

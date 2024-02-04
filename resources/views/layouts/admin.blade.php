@@ -62,7 +62,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
-              <span class="menu-title">Token</span>
+              <span class="menu-title">Token Authentication</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -99,9 +99,7 @@
           </li>
         </ul>
       </nav>
-      <!-- partial -->
       <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
             <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
@@ -151,8 +149,6 @@
                   <p class="p-3 mb-0 text-center">See all projects</p>
                 </div>
               </li>
-
-            
               <li class="nav-item dropdown">
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
@@ -182,11 +178,10 @@
           </div>
         </nav>
         @yield('content')
-</body>
+  </body>
 <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">All rights reserved Salon Zen</span>
-              <!-- <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> All rights reserved | Salon Zen</span> -->
             </div>
           </footer>
 

@@ -5,8 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ClickCount extends Model
+class Expert extends Model
 {
     use HasFactory;
-    protected $fillable = ['count'];
+    protected $fillable = [
+        'name',
+        'position',
+        'description',
+        'image',
+    ];
 }

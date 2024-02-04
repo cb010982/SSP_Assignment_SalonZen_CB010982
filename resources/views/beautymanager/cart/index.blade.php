@@ -8,7 +8,7 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">Your Cart</h2>
-                    <!-- Other Cart Details Go Here -->
+               
                 </div>
             </div>
             @foreach($cartItems as $item)
@@ -16,7 +16,7 @@
                     <div class="mb-4">
                         <strong>Customer order {{ $item->id }} </strong>
                         <table class="table mt-3">
-                            <!-- Include thead only for the first iteration -->
+                           
                             @if($loop->first)
                                 <thead class="thead-dark">
                                     <tr>
@@ -40,7 +40,7 @@
                                         $totalAmount += $product['price'];
                                     @endphp
                                 @endforeach
-                                <!-- Add a row for the grand total -->
+                                
                                 <tr>
                                     <td colspan="2"><strong>Grand Total:</strong></td>
                                     <td><strong>${{ $totalAmount }}</strong></td>
@@ -49,15 +49,15 @@
                             </tbody>
                         </table>
                         
-                        <!-- Add Confirm and Decline buttons -->
+                        
                         <div class="text-right">
-                       <!-- Add Confirm and Decline buttons -->
+                       
                        <div id="buttons{{ $item->id }}" class="text-right">
                         @if($item->status == 'PENDING')
                             <a href="/cart/{{ $item->id }}/accept" class="btn btn-outline-success" onclick="dispatchOrder({{ $item->id }}); return false;">Order Dispatched</a>
                         @endif
                     </div>
-                        <!-- Add Confirm and Decline messages -->
+                       
                         <div id="confirmMessage{{ $item->id }}" style="display: none;" class="text-right">
                             <p class="text-success"><strong> ORDER DISPATCHED</strong></p>
                         </div>

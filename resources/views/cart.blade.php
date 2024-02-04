@@ -69,7 +69,7 @@
                    <div class="appointment-form">
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                        <select class="form-control" id="payment_method" name="payment_method" >
+                        <select class="form-control" id="payment_method" name="payment_method" required >
                                 <option value="" disabled selected>Payment Method</option>
                                 <option value="Master Card">Master Card</option>
                                 <option value="Visa">Visa</option>
@@ -78,27 +78,32 @@
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="cardholder_name" placeholder="Cardholder Name">
+                            <input type="text" class="form-control" name="cardholder_name" placeholder="Cardholder Name" required>
                         </div>
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="number" class="form-control" name="card_number" placeholder="Card Number">
+                            <input type="number" class="form-control" name="card_number" placeholder="Card Number" required maxlength="16">
                         </div>
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="number" class="form-control" name="cvc" placeholder="Security Code">
+                            <input type="number" class="form-control" name="cvc" placeholder="Security Code" required maxlength="3">
                         </div>
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="number" class="form-control" name="expiry_month" placeholder="Expiry Month">
+                            <input type="number" class="form-control" name="expiry_month" placeholder="Expiry Month" required maxlength="2">
                         </div>
                     </div>
                     <div class="row form-group d-flex">
                         <div class="col-md-6">
-                            <input type="number" class="form-control" name="expiry_date" placeholder="Expiry Year">
+                            <input type="number" class="form-control" name="expiry_date" placeholder="Expiry Year" required maxlength="2">
+                        </div>
+                    </div>
+                    <div class="row form-group d-flex">
+                        <div class="col-md-6">
+                            <textarea class="form-control" name="address" placeholder="Address" required></textarea>
                         </div>
                     </div>
                     </div>
@@ -128,27 +133,27 @@
 
         addToCartButtons.forEach(function (button, index) {
             button.addEventListener('click', function () {
-                // Get the product details from the clicked button's parent element
+  
                 var productContainer = button.closest('.blog-entry');
                 var productName = productContainer.querySelector('h3').innerText;
                 productName = productName.replace(/Add to Cart$/, '').trim();
-                // Check if the product is already in the cart
+             
                 if (addedProducts.includes(productName)) {
                     alert('This product is already in the cart.');
                     return;
                 }
 
-                // Add the product name to the array of added products
+                
                 addedProducts.push(productName);
 
-                var productQuantity = 1;  // You can adjust this based on your requirements
+                var productQuantity = 1; 
                 var productTotalPrice = parseFloat(productContainer.querySelector('h4').innerText.replace('Rs ', ''));
 
-                // Create a new row in the table
+          
                 var tableBody = document.querySelector('.table tbody');
                 var newRow = tableBody.insertRow(tableBody.rows.length);
 
-                // Insert cells with product details
+                
                 var productNameCell = newRow.insertCell(0);
                 productNameCell.textContent = productName;
 
@@ -176,7 +181,7 @@
                 });
                 removeButtonCell.appendChild(removeButton);
 
-                // Update the grand total when a new product is added
+               
                 updateGrandTotal();
             });
         });
@@ -187,9 +192,9 @@
         }
 
         function removeProduct(row, productName) {
-            row.parentNode.removeChild(row); // Remove the row from the table
+            row.parentNode.removeChild(row); 
             addedProducts = addedProducts.filter(function (product) {
-                return product !== productName; // Remove the product from the array
+                return product !== productName; 
             });
         }
 
@@ -206,22 +211,21 @@
                 var total = parseFloat(totalCell.textContent.replace('Rs ', ''));
                 grandTotal += total;
 
-                // Add cart data to the array
                 cartData.push({
                 name: productName,
                 quantity: quantity,
                 price: total,
-                // Add other fields as needed
+                
             });
 
             }
             console.log(cartData);
 
-            // Update the grand total field
+          
             var grandTotalField = document.querySelector('#grand-total');
             grandTotalField.value = grandTotal.toFixed(2);
 
-             // Set the value of a hidden input field to send the cart data to the backend
+             
             document.querySelector('input[name="cart_data"]').value = JSON.stringify(cartData);
         }
     });

@@ -10,11 +10,6 @@ use App\Models\Product;
 
 class AdminProductController extends Controller
 {
-    // public function index()
-    // {
-    //     $products = Product::all();
-    //     return view('admin.products.index', compact('products'));
-    // }
 
     public function index()
     {
@@ -58,19 +53,6 @@ class AdminProductController extends Controller
     
         return response()->json(['success' => true]);
     }
-//     public function ajaxCreate(Request $request)
-// {
-//     $product = new Product;
-//     $product->name = $request->input('name');
-//     $product->description = $request->input('description');
-//     $product->price = $request->input('price');
-
-//     if ($product->save()) {
-//         return response()->json(['status' => 'success', 'message' => 'Product created successfully.']);
-//     } else {
-//         return response()->json(['status' => 'error', 'message' => 'There was a problem creating the product.']);
-//     }
-// }
    
 public function ajaxCreate(Request $request)
 {

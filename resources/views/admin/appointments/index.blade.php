@@ -67,27 +67,6 @@
     
 
 <script>
-// document.querySelector('#create-user-button').addEventListener('click', () => {
-//     const table = document.querySelector('table');
-//     const newRow = document.createElement('tr');
-
-//     const fields = ['name', 'email', 'telephone', 'address', 'date_of_birth', 'skin_type', 'allergies', 'password'];
-//     fields.forEach(field => {
-//         const newCell = document.createElement('td');
-//         newCell.classList.add(field);
-//         newCell.innerHTML = `<input type="text" value="">`;
-//         newRow.appendChild(newCell);
-//     });
-
-//     const actionCell = document.createElement('td');
-//     actionCell.innerHTML = `
-//         <button class="save-button">Save</button>
-//     `;
-//     newRow.appendChild(actionCell);
-
-//     table.appendChild(newRow);
-// }); //add a new page for creating a user
-
 document.getElementById('create-appointment-button').addEventListener('click', () => {
     document.getElementById('create-appointment-form').style.display = 'block';
 });

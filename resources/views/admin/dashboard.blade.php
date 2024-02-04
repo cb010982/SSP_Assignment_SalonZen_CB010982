@@ -61,11 +61,8 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-        <h4 class="card-title">Carts and Appointments</h4>
-          <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">
-            
-    
-            
+        <h4 class="card-title">Appointments Status</h4>
+          <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">        
             <div class="text-md-center text-xl-left">
                         <h6 class="mb-1">Appointments accepted</h6>
                       </div>
@@ -75,7 +72,7 @@
                     </div>
                     <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                       <div class="text-md-center text-xl-left">
-                        <h6 class="mb-1">Appointments accepted</h6>
+                        <h6 class="mb-1">Appointments declined</h6>
                       </div>
                       <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
                         <h6 class="font-weight-bold mb-0">{{ $declinedAppointmentCount }}</h6>
@@ -116,10 +113,10 @@
     <div class="col-md-6">
       <div class="card">
         <div class="card-body">
-        <h4 class="card-title">Carts and Appointments</h4>
+        <h4 class="card-title">Carts Status</h4>
           <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">
             <div class="text-md-center text-xl-left">
-                        <h6 class="mb-1">Future appointments</h6>
+                        <h6 class="mb-1">Carts Dispatched</h6>
                       </div>
                       <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
                         <h6 class="font-weight-bold mb-0">{{ $acceptedCartCount }}</h6>
@@ -127,15 +124,7 @@
                     </div>
                     <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
                       <div class="text-md-center text-xl-left">
-                        <h6 class="mb-1">Total customers</h6>
-                      </div>
-                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                        <h6 class="font-weight-bold mb-0">{{ $declinedCartCount }}</h6>
-                      </div>
-                    </div>
-                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                      <div class="text-md-center text-xl-left">
-                        <h6 class="mb-1">Total appointments</h6>
+                        <h6 class="mb-1">Carts Pending</h6>
                       </div>
                       <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
                         <h6 class="font-weight-bold mb-0">{{ $pendingCartCount }}</h6>
@@ -145,6 +134,42 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <div style="height: 300px;">
+            <canvas id="happyCustomersChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+        <h4 class="card-title">Happy Customers</h4>
+          <div class="bg-gray-dark d-flex flex-row py-3 px-4 rounded mt-3">
+            <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Happy Customers</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $count }}</h6>
+                      </div>
+                    </div>
+                    <div class="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                      <div class="text-md-center text-xl-left">
+                        <h6 class="mb-1">Total registered users</h6>
+                      </div>
+                      <div class="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                        <h6 class="font-weight-bold mb-0">{{ $totalcustomers }}</h6>
+                      </div>
+                    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
             </div>
         </div>
@@ -153,7 +178,24 @@
        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
        <script>
 
-
+var ctxHappyCustomers = document.getElementById('happyCustomersChart').getContext('2d');
+    var happyCustomersChart = new Chart(ctxHappyCustomers, {
+        type: 'pie',
+        data: {
+            labels: ['Happy Customers', 'Total registered users'],
+            datasets: [{
+                data: [{{ $count }}, {{ $totalcustomers }}],
+                backgroundColor: ['rgb(255, 204, 0)', 'rgb(102, 102, 102)'],
+                borderColor: ['rgb(255, 204, 0)', 'rgb(102, 102, 102)'],
+                hoverOffset: 4,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            responsive: true
+        }
+    });
     var ctx = document.getElementById('salesChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'pie', 
@@ -213,12 +255,12 @@
     var cartStatusChart = new Chart(ctxCart, {
         type: 'bar',
         data: {
-            labels: ['Accepted', 'Declined', 'Pending'],
+            labels: ['Dispatched', 'Pending'],
             datasets: [{
-                label: 'Cart Accepted Status',
-                data: [{{ $acceptedCartCount }}, {{ $declinedCartCount }}, {{ $pendingCartCount }}],
-                backgroundColor: ['rgb(0, 204, 0)', 'rgb(51, 51, 255)', 'rgb(255, 0, 102)'],
-                borderColor: ['rgb(0, 204, 0)', 'rgb(51, 51, 255)', 'rgb(255, 0, 102))'],
+                label: 'Cart Dispatched Status',
+                data: [{{ $acceptedCartCount }}, {{ $pendingCartCount }}],
+                backgroundColor: ['rgb(0, 204, 0)', 'rgb(255, 0, 102)'],
+                borderColor: ['rgb(0, 204, 0)','rgb(255, 0, 102))'],
                 borderWidth: 1
             }]
         },

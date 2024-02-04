@@ -6,7 +6,6 @@
             <div class="row justify-content-center mb-5 pb-3">
                 <div class="col-md-7 heading-section ftco-animate text-center">
                     <h2 class="mb-4">Your Cart History</h2>
-                    <!-- Other Cart Details Go Here -->
                 </div>
             </div>
 
@@ -27,7 +26,7 @@
                         </div>
                         <div class="card-body">
                             <table class="table mt-3">
-                                <!-- Include thead only for the first iteration -->
+                             
                                 @if($loop->first)
                                     <thead class="thead-dark">
                                     <tr>
@@ -58,17 +57,17 @@
         </div>
     </section>
     <style>
-        /* Custom style for price alignment */
+       
         .name-column {
-            width: 40%; /* Adjust as needed */
+            width: 40%; 
         }
         .quantity-column {
-            width: 20%; /* Adjust as needed */
-            text-align: center; /* Center-align quantity values */
+            width: 20%;
+            text-align: center;
         }
         .price-column {
-            width: 40%; /* Adjust as needed */
-            text-align: right; /* Right-align price values */
+            width: 40%; 
+            text-align: right; 
         }
     </style>
 @endsection

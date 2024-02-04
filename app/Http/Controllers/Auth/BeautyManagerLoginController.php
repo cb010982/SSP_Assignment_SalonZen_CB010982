@@ -25,7 +25,7 @@ class BeautyManagerLoginController extends Controller
 
 
         if (Auth::guard('beauty_manager')->attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended(route('beautymanager.dashboard'));
+            return redirect()->intended(route('beautymanager.appointments'));
         }
 
 

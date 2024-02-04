@@ -35,7 +35,7 @@ class AppointmentController extends Controller
         $appointment->user_id = $userId;
         $appointment->save();
 
-        return redirect()->route('appointments.index')->with('success', 'Appointment created successfully');
+        return back()->with('success', 'Appointment created successfully');
     }
     public function showForm()
     {

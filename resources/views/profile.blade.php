@@ -176,27 +176,27 @@
     }
     .card-body img {
             display: block;
-            margin: 0 auto; /* Centers the image */
+            margin: 0 auto; 
     }
     #edit {
-            background-color: #FB74FF; /* Primary color for visibility */
-            color: white; /* Text color */
-            border: none; /* Remove default border */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+            background-color: #FB74FF; 
+            color: white; 
+            border: none; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
         }
 
-        /* Hover effect for the button */
+       
         #edit:hover {
             background-color: #fff;
             border-color: #FB74FF;
-            color:#000 /* Slightly darker shade on hover */
+            color:#000 
         }
         
 
-        /* Darken the card header */
+      
         .card-header {
-            background-color: #fa5bdd; /* Darker blue */
-            color: white; /* White text for contrast */
+            background-color: #fa5bdd;
+            color: white; 
         }
 
     @keyframes fadeInUp {

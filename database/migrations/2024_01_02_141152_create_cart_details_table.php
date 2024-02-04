@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('cart_details', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Assuming you are using Laravel conventions for foreign keys
+            $table->foreignId('user_id')->constrained(); 
             $table->string('product_name');
             $table->integer('quantity');
             $table->decimal('total_price', 8, 2);
