@@ -141,94 +141,10 @@ Password: Senu@123$ <br>
 Email: beautymanager@gmail.com <br>
 Password: Senu@123$ <br>
 
-## Web Pages
-# Customer
-# Services Page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/2cefd2d1-8f40-4a4e-960c-67e05e2aeede)
-
-# Products Page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/22672308-7bb8-40b7-a145-d141d5371c4c)
-
-# Staff Page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/888c2b2d-894f-494e-b6cf-798a3ee420b2)
-
-# Profile Page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/b89f7679-cf04-4902-9d7c-6d5956923634)
-
-# Pricing Page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/3a824162-6c8c-4d78-ab49-d5f6231f2244)
-
-# Appointment history
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/8b186acd-cf02-4c10-9d0b-3f42ace53815)
-
-# Appointments page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/1abe2566-086f-4a37-b389-76fc7cd94d43)
-
-# Cart page 
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/0f69abc1-c14f-4126-a9d9-1d9059ea3642)
-
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/ad78e3ac-06a6-445e-8b35-c17e12e63b4a)
-
-# Cart Histoy 
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/9e3ef0a3-113f-4eba-85c8-6864735d0ef0)
-
-# Chat page
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/5878157e-30c8-4d2c-9e8a-d493e1caef7e)
-
-
-
-# Beauty Manager View
-# Appointment Management 
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/fa5170c5-ebb7-49dc-a734-cae953b47b97)
-
-# Cart Management 
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/e59c0f3e-df1b-4855-912c-10915a837918)
-
-# Administrator View
-# Address Book
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/746746a9-c691-415a-8215-75bf4f34322e)
-
-# Product Management
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/73292299-8aad-4cb0-a4f1-13c1b4f1a327)
-
-# Service Management
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/c1f711ea-5be0-46a8-9210-b54b0185e076)
-
-# Appointment Management
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/f330c5d7-088a-4079-877e-24bed6b6f784)
-
-# Analytics Board
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/30fde3aa-78ca-40dd-ba3f-02642e12811d)
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/cdf584e9-ceac-404a-97f5-7696396cfc7a)
-
-# Mail trap was used for this system
-
-![image](https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/6922a98d-5721-4021-beb6-1023b154f2f2)
-
 # Target Market Analysis
 
-<img width="524" alt="image" src="https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/a95f0674-4369-4a0e-a4e9-81e2470fadde">
 
-
+Sally
 Characteristics <br>
 •	Sally leads a hectic life with a demanding job and a busy social calendar. <br>
 •	She values convenience and efficiency in all aspects of her life. <br>
@@ -250,8 +166,7 @@ Desires <br>
 •	Answer Questions: Sally wants to clarify her doubts before deciding her purchase. <br>
 •	Privacy and Relaxation: Sally desires a salon environment that prioritizes privacy and relaxation, allowing her to unwind during her beauty treatments. <br>
 
-<img width="565" alt="image" src="https://github.com/cb010982/ssp1_assignment_salon_zen/assets/113625267/eadd2adc-bb60-48e4-acff-c698f07a7be3">
-
+Taylor
 Characteristics <br>
 •	Taylor is highly fashion-conscious and always wants to look her best. <br>
 •	She enjoys experimenting with the latest beauty trends and products. <br>
