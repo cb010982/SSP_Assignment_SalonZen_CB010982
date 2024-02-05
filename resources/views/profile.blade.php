@@ -76,6 +76,15 @@
                                             value="{{ $user->skin_type }}">
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label for="allergies"><strong>Allergies</strong></label>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="allergies" name="allergies"
+                                            value="{{ $user->allergies }}">
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
                             </form>
 

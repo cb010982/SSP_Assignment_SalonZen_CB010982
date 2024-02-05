@@ -22,6 +22,7 @@ class UserProfileController extends Controller
             'address' => 'required|string|max:255',
             'telephone' => 'required|digits:10',
             'skin_type' => 'required|string|max:255',
+            'allergies' => 'required|string|max:255',
         ]);
 
        
