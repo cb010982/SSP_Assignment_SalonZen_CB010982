@@ -327,7 +327,7 @@ cd to where you downloaded the folder
 # Run the following 
 Composer install<br>
 npm install<br>
-Create a new .env file and copy the .env.example file and past it to the .env file<br>
+Create a new .env file and copy the .env.example file and paste it to the .env file<br>
 Create a database and add the database credentials to the .env file<br>
 If you are using sqlite use laravel docs and follow the instructions https://laravel.com/docs/10.x/database#sqlite-configuration<br>
 Add your Mailtrap details<br>
